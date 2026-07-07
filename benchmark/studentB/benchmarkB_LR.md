@@ -1,6 +1,6 @@
 # Task: TA-Example
 ## Metadata
-- Task ID: TA-Example
+- Task ID: TA-02
 - Category: Technical Analysis
 - Difficulty: Medium
 - Author: Example Author
