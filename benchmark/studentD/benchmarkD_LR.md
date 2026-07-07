@@ -1,39 +1,75 @@
-# Task: TA-Example
+# Task: LR-04
 ## Metadata
-- Task ID: TA-Example
-- Category: Technical Analysis
+- Task ID: LR-04
+- Category: Literature Review
 - Difficulty: Medium
-- Author: Example Author
-- Tool Requirement: Prohibited
+- Author: Haofan Hou
+- Tool Requirement: Required
 ## Prompt
-Explain the difference between a sequential handoff multi-agent workflow and a shared-blackboard multi-
-agent workflow. Compare them in terms of information flow, coordination cost, failure risks, and
-suitability for complex knowledge-work tasks. Then recommend which workflow is better for a
-research report writing task and justify your answer.
+
+Write a short literature review on communication methods in multi-agent LLM systems.
+
+First, briefly summarize the purpose of communication in multi-agent LLM systems and the main research problems addressed in this field.
+
+Then, review and compare the following three categories of communication methods:
+
+1. Direct or message-passing communication
+2. Shared-workspace communication, such as shared memory or blackboard systems
+3. Discussion-based communication, such as group discussion, debate, or iterative critique
+
+For the purpose of this review, treat these as high-level communication patterns. A real multi-agent system may combine more than one pattern.
+
+For each category, describe its general approach, provide at least one example from the literature, and summarize its main strengths and limitations.
+
+Finally, identify one specific unresolved issue or research gap that is supported by limitations discussed in at least two of the reviewed sources. Briefly explain why the gap is important and what future research could investigate.
 ## Required Output Format
-Use the following format:
-1. Short explanation of sequential handoff
-2. Short explanation of shared blackboard
-3. Comparison table
-4. Recommendation paragraph
-5. Potential failure risks
+Use the following structure:
+
+1. Field overview
+2. Direct or message-passing communication
+3. Shared-workspace communication
+4. Discussion-based communication
+5. Comparison table
+6. Research gap and future research direction
+7. Conclusion
+8. References
+
+The comparison table must include:
+
+| Method Category | General Approach | Literature Example | Main Strength | Main Limitation |
+
+The response should be approximately 500-800 words.
 ## Ground Truth / Evaluation Criteria
 The answer should satisfy the following criteria:
-1. Correctly explains that sequential handoff passes outputs forward through an ordered chain.
-2. Correctly explains that shared blackboard allows agents to contribute to and read from a shared
-workspace.
-3. Compares information flow, coordination cost, failure risks, and task suitability.
-4. Identifies at least one failure risk for each workflow.
-5. Gives a justified recommendation for research report writing.
+
+1. Clearly summarizes the purpose and major research concerns of communication in multi-agent LLM systems.
+2. Correctly describes all three required categories of communication methods.
+3. Includes at least one relevant literature example for each category.
+4. Compares the methods using their general approaches, strengths, and limitations.
+5. Identifies one specific and plausible research gap.
+6. Connects the research gap to limitations or unresolved issues found in the reviewed literature.
+7. Suggests a reasonable future research direction related to the identified gap.
+8. Uses the required structure, comparison table, in-text citations, and reference list.
 ## Required Evidence
-No external citation required. The task is conceptual and should be answered from the given concepts.
+
+The answer must cite at least three reliable sources.
+
+At least two sources must be academic papers, conference papers, journal articles, or research preprints.
+
+Official technical reports may be used as additional sources.
+
+Examples, factual claims, and research limitations should be supported by appropriate citations.
 ## Scoring Rubric
-- Accuracy: The explanation of both workflows must be technically correct.
-- Completeness: The answer must cover all required comparison dimensions.
-- Helpfulness: The recommendation must be clear and actionable.
-- Hallucination Penalty: Penalize claims about tools, model performance, or empirical results that are
-not provided in the prompt.
+- Accuracy: The descriptions of the research field, communication methods, and cited studies must be correct.
+- Completeness: The answer must cover the field overview, all three method categories, their comparison, one research gap, and one future direction.
+- Helpfulness: The review should clearly organize the literature and help the reader understand major approaches and unresolved issues.
+- Hallucination Penalty: Penalize fabricated papers, incorrect citations, unsupported descriptions of research findings, or research gaps that are not connected to the reviewed literature.
 ## Expected Failure Risks
-- Confusing shared blackboard with group chat.
-- Ignoring failure risks.
-- Giving a recommendation without justification.
+- Turning the literature review into a purely technical architecture analysis.
+- Listing papers without synthesizing or comparing their findings.
+- Confusing individual protocols with broader categories of communication methods.
+- Inventing papers, authors, experimental results, or publication details.
+- Presenting a vague limitation as a research gap without supporting evidence.
+- Suggesting a future direction that is unrelated to the identified gap.
+## Notes
+The task evaluates literature summarization, method comparison, and research-gap identification. It does not require the system to design or recommend a complete communication architecture.
