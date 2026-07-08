@@ -1,39 +1,62 @@
-# Task: TA-Example
+# Task: EC-02
+
 ## Metadata
-- Task ID: TA-Example
-- Category: Technical Analysis
+
+- Task ID: EC-02
+- Category: Educational Content
 - Difficulty: Medium
-- Author: Example Author
+- Author: Zhiqi Hu
 - Tool Requirement: Prohibited
+
 ## Prompt
-Explain the difference between a sequential handoff multi-agent workflow and a shared-blackboard multi-
-agent workflow. Compare them in terms of information flow, coordination cost, failure risks, and
-suitability for complex knowledge-work tasks. Then recommend which workflow is better for a
-research report writing task and justify your answer.
+
+Create a 50-minute introductory lesson plan for teaching dynamic programming using the coin change problem to undergraduate computer science students.
+
+The students already know arrays, loops, and recursion, but many of them confuse greedy algorithms with dynamic programming. The lesson should emphasize when dynamic programming is appropriate, how to define subproblems, how to write the recurrence, and how to build the bottom-up table.
+
 ## Required Output Format
+
 Use the following format:
-1. Short explanation of sequential handoff
-2. Short explanation of shared blackboard
-3. Comparison table
-4. Recommendation paragraph
-5. Potential failure risks
+1. Lesson title and target audience
+2. Learning objectives
+3. Prerequisites
+4. 50-minute timeline table
+5. Concept explanation with a small worked example
+6. Board / slide outline
+7. In-class activity
+8. Common misconceptions and instructor responses
+9. Exit quiz with answers
+10. Optional homework prompt
+
 ## Ground Truth / Evaluation Criteria
+
 The answer should satisfy the following criteria:
-1. Correctly explains that sequential handoff passes outputs forward through an ordered chain.
-2. Correctly explains that shared blackboard allows agents to contribute to and read from a shared
-workspace.
-3. Compares information flow, coordination cost, failure risks, and task suitability.
-4. Identifies at least one failure risk for each workflow.
-5. Gives a justified recommendation for research report writing.
+
+1. Defines clear learning objectives focused on dynamic programming, subproblems, recurrence, and table construction.
+2. Uses the coin change problem correctly and includes a small worked example.
+3. Explains why a greedy approach can fail or be insufficient for some coin systems.
+4. Provides a realistic 50-minute timeline with active learning rather than only lecture.
+5. Includes common misconceptions and concrete instructor responses.
+6. Includes an exit quiz with correct answers aligned to the objectives.
+
 ## Required Evidence
-No external citation required. The task is conceptual and should be answered from the given concepts.
+
+No external evidence is allowed. The lesson should be constructed from the prompt and standard CS reasoning. Calculations in the worked example should be internally consistent.
+
 ## Scoring Rubric
-- Accuracy: The explanation of both workflows must be technically correct.
-- Completeness: The answer must cover all required comparison dimensions.
-- Helpfulness: The recommendation must be clear and actionable.
-- Hallucination Penalty: Penalize claims about tools, model performance, or empirical results that are
-not provided in the prompt.
+
+- Accuracy: Judge whether the dynamic programming explanation, recurrence, and example are correct.
+- Completeness: Judge whether all lesson-plan sections and evaluation criteria are covered.
+- Helpfulness: Judge whether the lesson is teachable, well paced, and likely to help students distinguish greedy methods from dynamic programming.
+- Hallucination Penalty: Penalize incorrect recurrences, inconsistent worked examples, or unsupported claims about curriculum standards.
+
 ## Expected Failure Risks
-- Confusing shared blackboard with group chat.
-- Ignoring failure risks.
-- Giving a recommendation without justification.
+
+- Providing only a generic lesson plan without a worked coin change example.
+- Confusing greedy and dynamic programming strategies.
+- Writing a recurrence that does not match the stated problem.
+- Omitting assessment or active learning.
+
+## Notes
+
+This is a medium educational-content task because it requires lesson design, concept explanation, example construction, and assessment alignment.
