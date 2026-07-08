@@ -1,39 +1,51 @@
-# Task: TA-Example
+# Task: EC-05
+
 ## Metadata
-- Task ID: TA-Example
-- Category: Technical Analysis
-- Difficulty: Medium
-- Author: Example Author
+
+- Task ID: EC-05
+- Category: Educational Content
+- Difficulty: Easy
+- Author: Student E
 - Tool Requirement: Prohibited
+
 ## Prompt
-Explain the difference between a sequential handoff multi-agent workflow and a shared-blackboard multi-
-agent workflow. Compare them in terms of information flow, coordination cost, failure risks, and
-suitability for complex knowledge-work tasks. Then recommend which workflow is better for a
-research report writing task and justify your answer.
+
+Explain what a multi-agent LLM system is to someone who has never heard of the term before. Assume the reader already understands what a single LLM, such as ChatGPT, but has no knowledge of multi-agent systems.
+
 ## Required Output Format
+
 Use the following format:
-1. Short explanation of sequential handoff
-2. Short explanation of shared blackboard
-3. Comparison table
-4. Recommendation paragraph
-5. Potential failure risks
+
+1. Plain-language definition
+2. One key difference between a multi-agent system and a single-agent system
+3. One real-world analogy
+4. One simple example scenario
+
 ## Ground Truth / Evaluation Criteria
+
 The answer should satisfy the following criteria:
-1. Correctly explains that sequential handoff passes outputs forward through an ordered chain.
-2. Correctly explains that shared blackboard allows agents to contribute to and read from a shared
-workspace.
-3. Compares information flow, coordination cost, failure risks, and task suitability.
-4. Identifies at least one failure risk for each workflow.
-5. Gives a justified recommendation for research report writing.
+
+1. Correctly explains that a multi-agent LLM system consists of multiple LLM-based agents working together, rather than a single model acting alone.
+2. Correctly identifies at least one meaningful difference between a multi-agent system and a single-agent system, such as division of labor, specialized roles, or inter-agent communication.
+3. Provides an analogy that meaningfully maps to the core idea of multiple agents collaborating, such as a team of specialists, an assembly line, or a committee.
+4. Gives a concrete, simple example scenario showing agents with different roles.
+5. Uses beginner-friendly language without unexplained jargon.
+6. Follows the required four-part structure: definition, key difference, analogy, and example.
+
 ## Required Evidence
-No external citation required. The task is conceptual and should be answered from the given concepts.
+
+No external citation required. The task is conceptual and should be answered from general knowledge.
+
 ## Scoring Rubric
-- Accuracy: The explanation of both workflows must be technically correct.
-- Completeness: The answer must cover all required comparison dimensions.
-- Helpfulness: The recommendation must be clear and actionable.
-- Hallucination Penalty: Penalize claims about tools, model performance, or empirical results that are
-not provided in the prompt.
+
+- Accuracy: The definition and analogy must be technically correct and not misleading.
+- Completeness: The answer must include all four required parts and cover the listed evaluation criteria, including definition, key difference, analogy, example, beginner-friendly language, and required structure.
+- Helpfulness: The explanation must be clear enough for a genuine beginner to understand.
+- Hallucination Penalty: Penalize invented facts about specific named systems or tools that are not asked about in the prompt.
+
 ## Expected Failure Risks
-- Confusing shared blackboard with group chat.
-- Ignoring failure risks.
-- Giving a recommendation without justification.
+
+- Using unexplained jargon, such as "orchestration" or "routing," without defining it.
+- Choosing an analogy that does not meaningfully map to multi-agent collaboration.
+- Confusing a multi-agent system with a single chatbot using plugins.
+- Stating a difference from single-agent systems that is vague or incorrect, such as simply claiming multi-agent systems are "more accurate" without explaining why.
