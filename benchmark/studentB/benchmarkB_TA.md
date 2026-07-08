@@ -1,39 +1,55 @@
-# Task: TA-Example
+# Task: TA-02
+
 ## Metadata
-- Task ID: TA-Example
+
+- Task ID: TA-02
 - Category: Technical Analysis
-- Difficulty: Medium
-- Author: Example Author
+- Difficulty: Easy
+- Author: Zhiqi Hu
 - Tool Requirement: Prohibited
+
 ## Prompt
-Explain the difference between a sequential handoff multi-agent workflow and a shared-blackboard multi-
-agent workflow. Compare them in terms of information flow, coordination cost, failure risks, and
-suitability for complex knowledge-work tasks. Then recommend which workflow is better for a
-research report writing task and justify your answer.
+
+Explain the difference between BM25 keyword search and dense embedding semantic search for an internal FAQ search system.
+
+Compare them in terms of matching behavior, handling of synonyms, exact phrase or identifier lookup, data and infrastructure needs, latency, and common failure modes. Then recommend whether the FAQ system should use BM25, dense embeddings, or a hybrid approach for a small company with 500 FAQ documents.
+
 ## Required Output Format
+
 Use the following format:
-1. Short explanation of sequential handoff
-2. Short explanation of shared blackboard
+1. Short definition of BM25 keyword search
+2. Short definition of dense embedding semantic search
 3. Comparison table
 4. Recommendation paragraph
-5. Potential failure risks
+5. Two likely failure risks and mitigations
+
 ## Ground Truth / Evaluation Criteria
+
 The answer should satisfy the following criteria:
-1. Correctly explains that sequential handoff passes outputs forward through an ordered chain.
-2. Correctly explains that shared blackboard allows agents to contribute to and read from a shared
-workspace.
-3. Compares information flow, coordination cost, failure risks, and task suitability.
-4. Identifies at least one failure risk for each workflow.
-5. Gives a justified recommendation for research report writing.
+
+1. Correctly explains that BM25 is a lexical keyword-matching method based on term frequency and document relevance scoring.
+2. Correctly explains that dense embedding search retrieves semantically similar content using vector representations.
+3. Compares the required dimensions: matching behavior, synonyms, exact identifiers, infrastructure, latency, and failure modes.
+4. Gives a justified recommendation for the 500-document FAQ scenario.
+5. Identifies at least two realistic failure risks and practical mitigations.
+
 ## Required Evidence
-No external citation required. The task is conceptual and should be answered from the given concepts.
+
+No external evidence is allowed. The task should be answered using conceptual knowledge and reasoning from the prompt. Do not cite public sources or use web search.
+
 ## Scoring Rubric
-- Accuracy: The explanation of both workflows must be technically correct.
-- Completeness: The answer must cover all required comparison dimensions.
-- Helpfulness: The recommendation must be clear and actionable.
-- Hallucination Penalty: Penalize claims about tools, model performance, or empirical results that are
-not provided in the prompt.
+
+- Accuracy: Judge whether BM25 and dense embedding search are explained correctly and not confused with each other.
+- Completeness: Judge whether all comparison dimensions and required output sections are included.
+- Helpfulness: Judge whether the recommendation is clear, practical, and tied to the small FAQ scenario.
+- Hallucination Penalty: Penalize invented performance numbers, unsupported claims about specific products, or claims requiring external evidence.
+
 ## Expected Failure Risks
-- Confusing shared blackboard with group chat.
-- Ignoring failure risks.
-- Giving a recommendation without justification.
+
+- Overstating dense embeddings as always better.
+- Ignoring exact-match use cases such as product codes or error IDs.
+- Giving a recommendation without linking it to the 500-document FAQ context.
+
+## Notes
+
+This is an easy technical analysis task because it has a narrow scope and an obvious comparison-and-recommendation structure.
