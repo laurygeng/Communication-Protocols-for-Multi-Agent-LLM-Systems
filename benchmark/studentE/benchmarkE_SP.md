@@ -59,35 +59,17 @@ The response should be approximately 700-900 words. No external citations or too
   6. Three-Month Post-Launch Transition Plan
   7. Key Safeguards and Risks
 
-## Evaluation Rubric
+## Ground Truth / Evaluation Criteria
 
-### Requirement Coverage — Weight: 0.15
+The answer should satisfy the following criteria:
 
-Full credit requires all seven required sections; analysis of both strategies; coverage of all nine comparison dimensions; a complete comparison table using all four specified columns; one clearly identified primary strategy; a three-month post-launch transition plan; at least three concrete safeguards; and discussion of important risks. Reduce proportionally for each missing element.
-
-### In House Strategy Accuracy — Weight: 0.15
-
-Full credit requires a realistic assessment of hiring one internal mobile developer under the stated constraints. The answer should recognize the benefits of direct control, stronger product-context retention, and easier long-term continuity, while also addressing recruiting delay, single-person dependency, limited cross-functional coverage, and the risk that one developer must handle design, implementation, testing, and release work. Claims that one developer can automatically provide all required expertise or guarantee the deadline should reduce the score.
-
-### Outsourcing Strategy Accuracy — Weight: 0.15
-
-Full credit requires a realistic assessment of outsourcing to an agency. The answer should recognize faster team availability and access to multiple roles, while also addressing vendor-selection time, communication overhead, scope control, quality variability, intellectual-property and repository ownership, knowledge-transfer risk, and post-launch dependency. Claims that an agency automatically guarantees quality or speed should reduce the score.
-
-### Tradeoff Comparison Quality — Weight: 0.20
-
-Full credit requires direct, scenario-specific comparison across speed to start, deadline feasibility, access to expertise, management overhead, quality control, knowledge retention, intellectual property, maintenance continuity, and execution risk. The table and prose must explain the practical consequences of each tradeoff for this startup rather than listing generic advantages and disadvantages.
-
-### Timeline And Feasibility Reasoning — Weight: 0.15
-
-Full credit requires reasoning that is consistent with the three-month delivery window, the absence of an existing mobile developer, the co-founder's five-hour weekly review limit, and the prohibition on additional full-time engineering hires. The response should account for recruiting or vendor-onboarding time, testing, app-store submission, and the limited scope of the MVP. A plan that ignores these constraints or assumes unlimited internal support should receive no more than half credit.
-
-### Recommendation And Transition Planning — Weight: 0.15
-
-Full credit requires one clear primary strategy supported by at least three scenario-relevant reasons and one acknowledged limitation. The three-month post-launch plan must include concrete ownership-transfer or continuity actions, such as repository access, architecture and deployment documentation, backlog transfer, handover sessions, maintenance ownership, and issue-escalation procedures. A phased recommendation is acceptable only when the main delivery strategy remains explicit.
-
-### Clarity And Integrity — Weight: 0.05
-
-Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 700-900 words. Deduct for precise market salary or agency-rate figures, unsupported guarantees, invented project results, contradictions with the stated constraints, or vague claims that are not tied to the scenario.
+1. **Requirement Coverage:** Full credit requires all seven required sections; analysis of both strategies; coverage of all nine comparison dimensions; a complete comparison table using all four specified columns; one clearly identified primary strategy; a three-month post-launch transition plan; at least three concrete safeguards; and discussion of important risks. Reduce proportionally for each missing element.
+2. **In House Strategy Accuracy:** Full credit requires a realistic assessment of hiring one internal mobile developer under the stated constraints. The answer should recognize the benefits of direct control, stronger product-context retention, and easier long-term continuity, while also addressing recruiting delay, single-person dependency, limited cross-functional coverage, and the risk that one developer must handle design, implementation, testing, and release work. Claims that one developer can automatically provide all required expertise or guarantee the deadline should reduce the score.
+3. **Outsourcing Strategy Accuracy:** Full credit requires a realistic assessment of outsourcing to an agency. The answer should recognize faster team availability and access to multiple roles, while also addressing vendor-selection time, communication overhead, scope control, quality variability, intellectual-property and repository ownership, knowledge-transfer risk, and post-launch dependency. Claims that an agency automatically guarantees quality or speed should reduce the score.
+4. **Tradeoff Comparison Quality:** Full credit requires direct, scenario-specific comparison across speed to start, deadline feasibility, access to expertise, management overhead, quality control, knowledge retention, intellectual property, maintenance continuity, and execution risk. The table and prose must explain the practical consequences of each tradeoff for this startup rather than listing generic advantages and disadvantages.
+5. **Timeline And Feasibility Reasoning:** Full credit requires reasoning that is consistent with the three-month delivery window, the absence of an existing mobile developer, the co-founder's five-hour weekly review limit, and the prohibition on additional full-time engineering hires. The response should account for recruiting or vendor-onboarding time, testing, app-store submission, and the limited scope of the MVP. A plan that ignores these constraints or assumes unlimited internal support should receive no more than half credit.
+6. **Recommendation And Transition Planning:** Full credit requires one clear primary strategy supported by at least three scenario-relevant reasons and one acknowledged limitation. The three-month post-launch plan must include concrete ownership-transfer or continuity actions, such as repository access, architecture and deployment documentation, backlog transfer, handover sessions, maintenance ownership, and issue-escalation procedures. A phased recommendation is acceptable only when the main delivery strategy remains explicit.
+7. **Clarity And Integrity:** Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 700-900 words. Deduct for precise market salary or agency-rate figures, unsupported guarantees, invented project results, contradictions with the stated constraints, or vague claims that are not tied to the scenario.
 
 ## Required Evidence
 
@@ -97,6 +79,16 @@ No external evidence or citations are required. Answer from the prompt, provided
 
 - None
 
+## Scoring Rubric
+
+- **Requirement Coverage (0.15):** Full credit requires all seven required sections; analysis of both strategies; coverage of all nine comparison dimensions; a complete comparison table using all four specified columns; one clearly identified primary strategy; a three-month post-launch transition plan; at least three concrete safeguards; and discussion of important risks. Reduce proportionally for each missing element.
+- **In House Strategy Accuracy (0.15):** Full credit requires a realistic assessment of hiring one internal mobile developer under the stated constraints. The answer should recognize the benefits of direct control, stronger product-context retention, and easier long-term continuity, while also addressing recruiting delay, single-person dependency, limited cross-functional coverage, and the risk that one developer must handle design, implementation, testing, and release work. Claims that one developer can automatically provide all required expertise or guarantee the deadline should reduce the score.
+- **Outsourcing Strategy Accuracy (0.15):** Full credit requires a realistic assessment of outsourcing to an agency. The answer should recognize faster team availability and access to multiple roles, while also addressing vendor-selection time, communication overhead, scope control, quality variability, intellectual-property and repository ownership, knowledge-transfer risk, and post-launch dependency. Claims that an agency automatically guarantees quality or speed should reduce the score.
+- **Tradeoff Comparison Quality (0.20):** Full credit requires direct, scenario-specific comparison across speed to start, deadline feasibility, access to expertise, management overhead, quality control, knowledge retention, intellectual property, maintenance continuity, and execution risk. The table and prose must explain the practical consequences of each tradeoff for this startup rather than listing generic advantages and disadvantages.
+- **Timeline And Feasibility Reasoning (0.15):** Full credit requires reasoning that is consistent with the three-month delivery window, the absence of an existing mobile developer, the co-founder's five-hour weekly review limit, and the prohibition on additional full-time engineering hires. The response should account for recruiting or vendor-onboarding time, testing, app-store submission, and the limited scope of the MVP. A plan that ignores these constraints or assumes unlimited internal support should receive no more than half credit.
+- **Recommendation And Transition Planning (0.15):** Full credit requires one clear primary strategy supported by at least three scenario-relevant reasons and one acknowledged limitation. The three-month post-launch plan must include concrete ownership-transfer or continuity actions, such as repository access, architecture and deployment documentation, backlog transfer, handover sessions, maintenance ownership, and issue-escalation procedures. A phased recommendation is acceptable only when the main delivery strategy remains explicit.
+- **Clarity And Integrity (0.05):** Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 700-900 words. Deduct for precise market salary or agency-rate figures, unsupported guarantees, invented project results, contradictions with the stated constraints, or vague claims that are not tied to the scenario.
+
 ## Expected Failure Risks
 
 - Ignoring the three-month deadline or the co-founder's five-hour weekly review limit.
@@ -104,3 +96,7 @@ No external evidence or citations are required. Answer from the prompt, provided
 - Failing to address repository ownership, documentation, and knowledge transfer.
 - Giving a phased plan without identifying the primary delivery strategy.
 - Using invented salary, agency-rate, or completed-project figures.
+
+## Notes
+
+

@@ -80,47 +80,20 @@ Use in-text citations for claims derived from the provided papers and online sou
   10. Conclusion
   11. References
 
-## Evaluation Rubric
+## Ground Truth / Evaluation Criteria
 
-### Requirement Coverage — Weight: 0.10
+The answer should satisfy the following criteria:
 
-Full credit requires all eleven required sections; coverage of all seven papers; all five required tables with the specified columns; one research gap supported by at least two papers; one future direction; citation data for all seven papers; scores for all seven papers on all four criteria; a weighted score and complete ranking; at least two criterion conflicts; and a References section containing all seven papers plus the citation-data source.
-
-### Seven Paper Summary Accuracy — Weight: 0.18
-
-Full credit requires technically accurate descriptions of the research problem, mechanism or system design, contribution, evaluation setting, strength, and limitation for each paper. Each paper contributes approximately one seventh of this criterion. Major mechanism attribution errors, invented experiments, or assigning one paper's contribution to another receive little or no credit for the affected paper.
-
-### Cross Paper Relationship Accuracy — Weight: 0.12
-
-Full credit requires careful use of the allowed relationship types and evidence-based distinctions among direct extension, mechanism reuse, framework integration, conceptual similarity, and no clear dependency. A related-work citation alone must not be treated as direct methodological influence.
-
-### Research Gap Quality — Weight: 0.12
-
-Full credit requires one specific and nontrivial unresolved gap supported by limitations or open problems from at least two reviewed papers; an explanation of why the gap matters; evidence that the seven papers do not already fully solve it; and one feasible future research direction that directly addresses it.
-
-### Citation Data Accuracy And Consistency — Weight: 0.15
-
-Full credit requires current citation counts for all seven papers from one consistent platform, a common retrieval date, correct publication years, and correct citations-per-year calculations. The answer must use canonical records matching title and authors, must not mix platforms, and must clearly document any switch from Semantic Scholar to OpenAlex. Missing, duplicated, mismatched, or fabricated records substantially reduce this score.
-
-### Scholarly Influence Reasoning — Weight: 0.10
-
-Full credit requires influence judgments that combine total citations, citations per year, and evidence of direct methodological adoption or extension. Citation count alone must not determine the score. The response must distinguish broad citation visibility from direct influence and acknowledge temporal bias against newer papers.
-
-### Ranking Method Consistency — Weight: 0.13
-
-Full credit requires explicit weights, 1-5 scores for every paper on novelty, generality, empirical rigor, and scholarly influence, correct weighted-score calculations, and an overall ranking consistent with those scores. Alternative weights require justification before scoring. Any deviation from the numerical order must be explained.
-
-### Criterion Conflict Reasoning — Weight: 0.05
-
-Full credit requires at least two meaningful conflicts among ranking criteria and explains how they affect the ordering, including at least one discussion of citation-based influence versus another criterion or of the age bias inherent in citation counts.
-
-### Source And Citation Integrity — Weight: 0.03
-
-Full credit requires claims to be traceable to the seven provided papers and the specified online citation source, with corresponding in-text citations and reference entries. Fabricated papers, authors, venues, experiments, citation counts, dependencies, or source records are critical failures.
-
-### Clarity And Format — Weight: 0.02
-
-Full credit requires clear organization, comparative synthesis, readable Markdown, internally consistent tables and calculations, and approximately 1,600-2,000 words. Major omissions or contradictions between prose, tables, and calculations reduce this score.
+1. **Requirement Coverage:** Full credit requires all eleven required sections; coverage of all seven papers; all five required tables with the specified columns; one research gap supported by at least two papers; one future direction; citation data for all seven papers; scores for all seven papers on all four criteria; a weighted score and complete ranking; at least two criterion conflicts; and a References section containing all seven papers plus the citation-data source.
+2. **Seven Paper Summary Accuracy:** Full credit requires technically accurate descriptions of the research problem, mechanism or system design, contribution, evaluation setting, strength, and limitation for each paper. Each paper contributes approximately one seventh of this criterion. Major mechanism attribution errors, invented experiments, or assigning one paper's contribution to another receive little or no credit for the affected paper.
+3. **Cross Paper Relationship Accuracy:** Full credit requires careful use of the allowed relationship types and evidence-based distinctions among direct extension, mechanism reuse, framework integration, conceptual similarity, and no clear dependency. A related-work citation alone must not be treated as direct methodological influence.
+4. **Research Gap Quality:** Full credit requires one specific and nontrivial unresolved gap supported by limitations or open problems from at least two reviewed papers; an explanation of why the gap matters; evidence that the seven papers do not already fully solve it; and one feasible future research direction that directly addresses it.
+5. **Citation Data Accuracy And Consistency:** Full credit requires current citation counts for all seven papers from one consistent platform, a common retrieval date, correct publication years, and correct citations-per-year calculations. The answer must use canonical records matching title and authors, must not mix platforms, and must clearly document any switch from Semantic Scholar to OpenAlex. Missing, duplicated, mismatched, or fabricated records substantially reduce this score.
+6. **Scholarly Influence Reasoning:** Full credit requires influence judgments that combine total citations, citations per year, and evidence of direct methodological adoption or extension. Citation count alone must not determine the score. The response must distinguish broad citation visibility from direct influence and acknowledge temporal bias against newer papers.
+7. **Ranking Method Consistency:** Full credit requires explicit weights, 1-5 scores for every paper on novelty, generality, empirical rigor, and scholarly influence, correct weighted-score calculations, and an overall ranking consistent with those scores. Alternative weights require justification before scoring. Any deviation from the numerical order must be explained.
+8. **Criterion Conflict Reasoning:** Full credit requires at least two meaningful conflicts among ranking criteria and explains how they affect the ordering, including at least one discussion of citation-based influence versus another criterion or of the age bias inherent in citation counts.
+9. **Source And Citation Integrity:** Full credit requires claims to be traceable to the seven provided papers and the specified online citation source, with corresponding in-text citations and reference entries. Fabricated papers, authors, venues, experiments, citation counts, dependencies, or source records are critical failures.
+10. **Clarity And Format:** Full credit requires clear organization, comparative synthesis, readable Markdown, internally consistent tables and calculations, and approximately 1,600-2,000 words. Major omissions or contradictions between prose, tables, and calculations reduce this score.
 
 ## Required Evidence
 
@@ -136,6 +109,19 @@ Use the seven provided local PDFs as the primary sources for paper content. Use 
 - `camel.pdf`
 - `metagpt.pdf`
 
+## Scoring Rubric
+
+- **Requirement Coverage (0.10):** Full credit requires all eleven required sections; coverage of all seven papers; all five required tables with the specified columns; one research gap supported by at least two papers; one future direction; citation data for all seven papers; scores for all seven papers on all four criteria; a weighted score and complete ranking; at least two criterion conflicts; and a References section containing all seven papers plus the citation-data source.
+- **Seven Paper Summary Accuracy (0.18):** Full credit requires technically accurate descriptions of the research problem, mechanism or system design, contribution, evaluation setting, strength, and limitation for each paper. Each paper contributes approximately one seventh of this criterion. Major mechanism attribution errors, invented experiments, or assigning one paper's contribution to another receive little or no credit for the affected paper.
+- **Cross Paper Relationship Accuracy (0.12):** Full credit requires careful use of the allowed relationship types and evidence-based distinctions among direct extension, mechanism reuse, framework integration, conceptual similarity, and no clear dependency. A related-work citation alone must not be treated as direct methodological influence.
+- **Research Gap Quality (0.12):** Full credit requires one specific and nontrivial unresolved gap supported by limitations or open problems from at least two reviewed papers; an explanation of why the gap matters; evidence that the seven papers do not already fully solve it; and one feasible future research direction that directly addresses it.
+- **Citation Data Accuracy And Consistency (0.15):** Full credit requires current citation counts for all seven papers from one consistent platform, a common retrieval date, correct publication years, and correct citations-per-year calculations. The answer must use canonical records matching title and authors, must not mix platforms, and must clearly document any switch from Semantic Scholar to OpenAlex. Missing, duplicated, mismatched, or fabricated records substantially reduce this score.
+- **Scholarly Influence Reasoning (0.10):** Full credit requires influence judgments that combine total citations, citations per year, and evidence of direct methodological adoption or extension. Citation count alone must not determine the score. The response must distinguish broad citation visibility from direct influence and acknowledge temporal bias against newer papers.
+- **Ranking Method Consistency (0.13):** Full credit requires explicit weights, 1-5 scores for every paper on novelty, generality, empirical rigor, and scholarly influence, correct weighted-score calculations, and an overall ranking consistent with those scores. Alternative weights require justification before scoring. Any deviation from the numerical order must be explained.
+- **Criterion Conflict Reasoning (0.05):** Full credit requires at least two meaningful conflicts among ranking criteria and explains how they affect the ordering, including at least one discussion of citation-based influence versus another criterion or of the age bias inherent in citation counts.
+- **Source And Citation Integrity (0.03):** Full credit requires claims to be traceable to the seven provided papers and the specified online citation source, with corresponding in-text citations and reference entries. Fabricated papers, authors, venues, experiments, citation counts, dependencies, or source records are critical failures.
+- **Clarity And Format (0.02):** Full credit requires clear organization, comparative synthesis, readable Markdown, internally consistent tables and calculations, and approximately 1,600-2,000 words. Major omissions or contradictions between prose, tables, and calculations reduce this score.
+
 ## Expected Failure Risks
 
 - Using citation count alone as the scholarly-influence score.
@@ -146,3 +132,7 @@ Use the seven provided local PDFs as the primary sources for paper content. Use 
 - Misattributing one paper's mechanism, contribution, or experiment to another.
 - Producing a ranking inconsistent with the scoring matrix without explanation.
 - Giving a generic research gap not supported by at least two papers.
+
+## Notes
+
+

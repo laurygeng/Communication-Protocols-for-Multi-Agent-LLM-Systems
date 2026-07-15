@@ -49,35 +49,17 @@ The response should be approximately 600-800 words. No external citations are re
   5. Recommended Architecture
   6. Key Implementation Safeguards
 
-## Evaluation Rubric
+## Ground Truth / Evaluation Criteria
 
-### Requirement Coverage — Weight: 0.15
+The answer should satisfy the following criteria:
 
-Full credit requires all six required sections; analysis of both integration approaches; coverage of all seven comparison dimensions; discussion of slow or unavailable downstream services; one clear recommendation; and a complete comparison table using all four specified columns. Reduce proportionally for missing sections, dimensions, failure analysis, recommendation, or table content.
-
-### Synchronous Rest Accuracy — Weight: 0.15
-
-Full credit requires a correct explanation that synchronous REST uses direct request-response calls and creates runtime coupling between the order service and downstream services. The answer should recognize that waiting for multiple services can increase user-facing latency and that a slow or failed dependency can cause partial failure or cascading failure. It must not claim that synchronous REST automatically provides distributed strong consistency or atomic completion across all services.
-
-### Asynchronous Messaging Accuracy — Weight: 0.15
-
-Full credit requires a correct explanation that the order service publishes an event and downstream services consume it independently through subscriptions or consumer groups where applicable. The answer should explain reduced runtime coupling, failure isolation, delayed processing, eventual consistency, and the need for broker, consumer, monitoring, and retry infrastructure. It must not assume that asynchronous delivery is automatically exactly once.
-
-### Comparison Quality — Weight: 0.20
-
-Full credit requires direct and technically meaningful comparison across request flow and coupling, user-facing latency, failure isolation, retries, duplicate delivery and idempotency, consistency and completion visibility, and implementation or operational complexity. The comparison table and prose should explain practical consequences for the order scenario rather than listing generic advantages and disadvantages.
-
-### Reliability And Consistency Reasoning — Weight: 0.15
-
-Full credit requires concrete reasoning about cascading failures, partial completion, retry policies, duplicate messages, idempotent consumers or operations, eventual consistency, message ordering where relevant, and failed-message recovery such as dead-letter handling or equivalent mechanisms. The response should explain how order status or step status can make incomplete processing visible. Merely naming these concepts without connecting them to the scenario receives partial credit.
-
-### Recommendation Quality — Weight: 0.15
-
-Full credit requires one clear architecture recommendation tailored to inventory, SMS, and shipping-label creation, supported by at least three scenario-specific reasons. A hybrid recommendation should clearly state which actions are synchronous or transactional and which are asynchronous. A fully asynchronous recommendation can receive full credit only if it credibly addresses overselling, ordering, idempotency, retries, and consistency. The answer must acknowledge at least one tradeoff or limitation of the recommended design.
-
-### Clarity And Evidence Integrity — Weight: 0.05
-
-Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 600-800 words. Deduct for contradictions, unsupported guarantees, invented performance numbers, claims of exactly-once delivery without qualification, or assertions that the proposed architecture has already been implemented or tested.
+1. **Requirement Coverage:** Full credit requires all six required sections; analysis of both integration approaches; coverage of all seven comparison dimensions; discussion of slow or unavailable downstream services; one clear recommendation; and a complete comparison table using all four specified columns. Reduce proportionally for missing sections, dimensions, failure analysis, recommendation, or table content.
+2. **Synchronous Rest Accuracy:** Full credit requires a correct explanation that synchronous REST uses direct request-response calls and creates runtime coupling between the order service and downstream services. The answer should recognize that waiting for multiple services can increase user-facing latency and that a slow or failed dependency can cause partial failure or cascading failure. It must not claim that synchronous REST automatically provides distributed strong consistency or atomic completion across all services.
+3. **Asynchronous Messaging Accuracy:** Full credit requires a correct explanation that the order service publishes an event and downstream services consume it independently through subscriptions or consumer groups where applicable. The answer should explain reduced runtime coupling, failure isolation, delayed processing, eventual consistency, and the need for broker, consumer, monitoring, and retry infrastructure. It must not assume that asynchronous delivery is automatically exactly once.
+4. **Comparison Quality:** Full credit requires direct and technically meaningful comparison across request flow and coupling, user-facing latency, failure isolation, retries, duplicate delivery and idempotency, consistency and completion visibility, and implementation or operational complexity. The comparison table and prose should explain practical consequences for the order scenario rather than listing generic advantages and disadvantages.
+5. **Reliability And Consistency Reasoning:** Full credit requires concrete reasoning about cascading failures, partial completion, retry policies, duplicate messages, idempotent consumers or operations, eventual consistency, message ordering where relevant, and failed-message recovery such as dead-letter handling or equivalent mechanisms. The response should explain how order status or step status can make incomplete processing visible. Merely naming these concepts without connecting them to the scenario receives partial credit.
+6. **Recommendation Quality:** Full credit requires one clear architecture recommendation tailored to inventory, SMS, and shipping-label creation, supported by at least three scenario-specific reasons. A hybrid recommendation should clearly state which actions are synchronous or transactional and which are asynchronous. A fully asynchronous recommendation can receive full credit only if it credibly addresses overselling, ordering, idempotency, retries, and consistency. The answer must acknowledge at least one tradeoff or limitation of the recommended design.
+7. **Clarity And Evidence Integrity:** Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 600-800 words. Deduct for contradictions, unsupported guarantees, invented performance numbers, claims of exactly-once delivery without qualification, or assertions that the proposed architecture has already been implemented or tested.
 
 ## Required Evidence
 
@@ -87,6 +69,16 @@ No external evidence or citations are required. Answer from the prompt, provided
 
 - None
 
+## Scoring Rubric
+
+- **Requirement Coverage (0.15):** Full credit requires all six required sections; analysis of both integration approaches; coverage of all seven comparison dimensions; discussion of slow or unavailable downstream services; one clear recommendation; and a complete comparison table using all four specified columns. Reduce proportionally for missing sections, dimensions, failure analysis, recommendation, or table content.
+- **Synchronous Rest Accuracy (0.15):** Full credit requires a correct explanation that synchronous REST uses direct request-response calls and creates runtime coupling between the order service and downstream services. The answer should recognize that waiting for multiple services can increase user-facing latency and that a slow or failed dependency can cause partial failure or cascading failure. It must not claim that synchronous REST automatically provides distributed strong consistency or atomic completion across all services.
+- **Asynchronous Messaging Accuracy (0.15):** Full credit requires a correct explanation that the order service publishes an event and downstream services consume it independently through subscriptions or consumer groups where applicable. The answer should explain reduced runtime coupling, failure isolation, delayed processing, eventual consistency, and the need for broker, consumer, monitoring, and retry infrastructure. It must not assume that asynchronous delivery is automatically exactly once.
+- **Comparison Quality (0.20):** Full credit requires direct and technically meaningful comparison across request flow and coupling, user-facing latency, failure isolation, retries, duplicate delivery and idempotency, consistency and completion visibility, and implementation or operational complexity. The comparison table and prose should explain practical consequences for the order scenario rather than listing generic advantages and disadvantages.
+- **Reliability And Consistency Reasoning (0.15):** Full credit requires concrete reasoning about cascading failures, partial completion, retry policies, duplicate messages, idempotent consumers or operations, eventual consistency, message ordering where relevant, and failed-message recovery such as dead-letter handling or equivalent mechanisms. The response should explain how order status or step status can make incomplete processing visible. Merely naming these concepts without connecting them to the scenario receives partial credit.
+- **Recommendation Quality (0.15):** Full credit requires one clear architecture recommendation tailored to inventory, SMS, and shipping-label creation, supported by at least three scenario-specific reasons. A hybrid recommendation should clearly state which actions are synchronous or transactional and which are asynchronous. A fully asynchronous recommendation can receive full credit only if it credibly addresses overselling, ordering, idempotency, retries, and consistency. The answer must acknowledge at least one tradeoff or limitation of the recommended design.
+- **Clarity And Evidence Integrity (0.05):** Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 600-800 words. Deduct for contradictions, unsupported guarantees, invented performance numbers, claims of exactly-once delivery without qualification, or assertions that the proposed architecture has already been implemented or tested.
+
 ## Expected Failure Risks
 
 - Claiming synchronous REST automatically guarantees distributed strong consistency.
@@ -94,3 +86,7 @@ No external evidence or citations are required. Answer from the prompt, provided
 - Ignoring duplicate delivery, idempotency, ordering, retries, or failed-message recovery.
 - Giving a generic recommendation that is not tied to inventory, SMS, and shipping-label requirements.
 - Failing to explain partial completion or cascading-failure behavior.
+
+## Notes
+
+
