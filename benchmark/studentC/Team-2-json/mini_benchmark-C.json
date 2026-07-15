@@ -1,0 +1,441 @@
+{
+  "schema_requirements": {
+    "metadata_recording": {
+      "per_call_logging": true,
+      "fields": ["timestamp","api_provider","model","temperature","max_tokens","input_tokens","output_tokens","total_tokens","call_cost_usd","tool_used","tool_response_raw"]
+    },
+    "failure_taxonomy": ["NoFailure","Hallucination","PartialAnswer","Timeout","FormatError","ToolError","Hallucination Propagation"],
+    "tool_interface_schema": {
+      "tool_id": "string",
+      "tool_type": "string",
+      "description": "string",
+      "expected_behavior": "string",
+      "required_parameters": "object"
+    },
+    "runner_enforcements": {
+      "enforce_tool_requirement": true,
+      "record_real_api_costs": true,
+      "require_raw_output_capture": true
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "EC-03",
+      "category": "Educational Content",
+      "difficulty": "Medium",
+      "author": "Minjie Geng",
+      "tool_requirement": "Varies",
+      "available_tools": ["image_input_tool"],
+      "tool_expectations": {
+        "image_input_tool": {
+          "description": "Provides access to local image files or image URLs for multimodal prompts. Returns a stable identifier and optional metadata (width, height, format).",
+          "required_output": {"image_id": "string", "url_or_path": "string", "metadata": {"width": "integer", "height": "integer", "format": "string"}}
+        }
+      },
+      "variants": [
+        {
+          "difficulty": "Easy",
+          "description": "Text-only tutorial as originally specified; tools prohibited.",
+          "tool_requirement": "Prohibited"
+        },
+        {
+          "difficulty": "Medium",
+          "description": "Author may include illustrative diagrams but local image attachments are optional.",
+          "tool_requirement": "Optional"
+        },
+        {
+          "difficulty": "Hard",
+          "description": "Multimodal requirement: the system must accept a provided local screenshot or diagram (via `image_input_tool`) and produce a structured JSON knowledge summary that references exact pixel regions or captions.",
+          "tool_requirement": "Required",
+          "required_output_format_addendum": "Structured JSON including fields: image_id, region_annotations (with x/y/width/height), caption, and knowledge_statements array."
+        }
+      ],
+      "prompt": "Design a brief tutorial (approx. 500–700 words) for junior software engineers explaining the differences between Retrieval-Augmented Generation (RAG) and Model Fine-Tuning. Provide a short, practical scenario where a company needs to build an internal knowledge bot based on daily-updated HR policies, and recommend which approach is better.",
+      "required_output_format": "Use the following format:\n\n1. Clear Definitions of RAG and Fine-Tuning.\n2. Comparison Matrix (must include exact columns: Approach, Data Freshness, Compute Cost, and Hallucination Mitigation).\n3. Scenario Application and Recommendation paragraph.\n4. Knowledge Check (a 3-question multiple-choice quiz with an answer key and brief explanations).",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Explicitly defines RAG as involving the retrieval of external documents to ground the prompt.", "weight": 1 },
+        { "id": "C2", "criterion": "Explicitly defines Fine-Tuning as updating the underlying model weights via training data.", "weight": 1 },
+        { "id": "C3", "criterion": "Response includes all 4 requested layout sections.", "weight": 1 },
+        { "id": "C4", "criterion": "The comparison table includes the exact column header 'Approach'.", "weight": 1 },
+        { "id": "C5", "criterion": "The comparison table includes the exact column header 'Data Freshness'.", "weight": 1 },
+        { "id": "C6", "criterion": "The comparison table includes the exact column header 'Compute Cost'.", "weight": 1 },
+        { "id": "C7", "criterion": "The comparison table includes the exact column header 'Hallucination Mitigation'.", "weight": 1 },
+        { "id": "C8", "criterion": "The table correctly identifies that RAG offers superior or real-time 'Data Freshness'.", "weight": 1 },
+        { "id": "C9", "criterion": "The table correctly identifies that RAG generally has lower upfront 'Compute Cost' than Fine-Tuning.", "weight": 1 },
+        { "id": "C10", "criterion": "The scenario application explicitly recommends RAG for the HR policy bot.", "weight": 1 },
+        { "id": "C11", "criterion": "The scenario recommendation is correctly justified by the requirement to handle 'daily-updated' data.", "weight": 1 },
+        { "id": "C12", "criterion": "The Knowledge Check section contains exactly 3 questions.", "weight": 1 },
+        { "id": "C13", "criterion": "All quiz questions are multiple-choice.", "weight": 1 },
+        { "id": "C14", "criterion": "An answer key for the quiz is provided.", "weight": 1 },
+        { "id": "C15", "criterion": "Brief explanations are provided for the quiz answers.", "weight": 1 },
+        { "id": "C16", "criterion": "The overall tone avoids overly dense academic jargon, staying suitable for junior software engineers.", "weight": 1 }
+      ],
+      "required_evidence": "No external citation required. The task tests pedagogical organization and conceptual accuracy based on established machine learning concepts.",
+      "scoring_rubric": {
+        "scoring_method": "Score each evaluation criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent or incorrect. Sum weighted criteria, then apply caps.",
+        "score_bands": {
+          "Excellent": "90-100% after caps: satisfies nearly all criteria, respects all constraints.",
+          "Good": "75-89% after caps: mostly correct, minor omissions.",
+          "Acceptable": "60-74% after caps: covers the main task but has notable gaps.",
+          "Poor": "40-59% after caps: substantial omissions or incorrect logic.",
+          "Fail": "Below 40% after caps, or critical fabrication."
+        },
+        "accuracy": "Definitions of RAG, Fine-Tuning, and quiz answers must be technically correct.",
+        "completeness": "Must include all 4 formatting sections, exact table columns, and exactly 3 quiz questions.",
+        "helpfulness": "Tutorial tone must be accessible to junior engineers.",
+        "grounding_and_evidence": "No external citation required.",
+        "hallucination_penalty": "Penalize claims that Fine-Tuning is cheaper than RAG, or recommendations that contradict the daily-update constraint.",
+        "hard_fail_rules": [
+          "Immediate fail if external tool use/citations are used when Tool Requirement is Prohibited."
+        ]
+      },
+      "expected_failure_risks": [
+        "Confusing the use cases (e.g., recommending Fine-Tuning for daily updated facts).",
+        "Failing to use the exact column headers required for the comparison matrix.",
+        "Writing a tutorial that is too academic, ignoring the junior engineer audience.",
+        "Providing a quiz answer key that contradicts the tutorial's text."
+      ],
+      "ground_truth": {
+        "task_type": "Educational Content",
+        "must_have": [
+          "Defines RAG via external retrieval.",
+          "Defines Fine-Tuning via weight updates.",
+          "Includes 4 exact table columns.",
+          "Correctly assesses Data Freshness and Compute Cost.",
+          "Recommends RAG for the HR bot due to daily updates.",
+          "Includes exactly 3 multiple-choice questions with answers/explanations."
+        ],
+        "must_not_have": [],
+        "critical_fail_conditions": [
+          "Recommending Fine-Tuning for daily updated facts.",
+          "Failing to use exact column headers."
+        ]
+      }
+    },
+    {
+      "task_id": "LR-03",
+      "category": "Literature Review (Paper Extraction & Synthesis)",
+      "difficulty": "Medium",
+      "author": "Minjie Geng",
+      "tool_requirement": "Required",
+      "available_tools": ["fixed_search_retriever"],
+      "tool_expectations": {
+        "fixed_search_retriever": {
+          "description": "A deterministic retrieval tool that returns top-k scholarly results.",
+          "required_output": {
+            "top_k": "integer",
+            "results": [{"title": "string", "authors": "string", "year": "integer", "doi_or_arxiv": "string", "snippet": "string"}]
+          }
+        }
+      },
+      "variants": [
+        { "difficulty": "Medium", "description": "Standard task", "tool_requirement": "Required" }
+      ],
+      "prompt": "Select exactly three highly cited or recent academic papers on the topic of Parameter-Efficient Fine-Tuning (PEFT) for Large Language Models (e.g., LoRA, Prefix-Tuning, Adapters).\n\n1. Provide a brief 1–2 paragraph introduction summarizing why PEFT is necessary for modern LLMs.\n2. Extract the core contributions of each paper and present them in a single, comprehensive comparison matrix. The matrix MUST contain exactly the following columns:\n\n- **Paper Title & Year**\n- **Core Method**\n- **Key Innovation**\n- **Main Limitation**\n\n3. Synthesize the information from the Main Limitation column. Based only on the flaws you extracted from these three specific papers, identify one overarching Research Gap in the current PEFT ecosystem and suggest a concrete direction for future research to solve it.",
+      "required_output_format": "Use the following strict structure:\n\n1. Introduction to PEFT\n2. Paper Extraction Matrix\n3. Synthesized Research Gap & Future Direction\n4. References (including DOI or ArXiv IDs)",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Provides a 1-2 paragraph introduction summarizing the necessity of PEFT.", "weight": 1 },
+        { "id": "C2", "criterion": "Selects exactly 3 academic papers.", "weight": 1 },
+        { "id": "C3", "criterion": "The selected papers are authentically related to the topic of PEFT.", "weight": 1 },
+        { "id": "C4", "criterion": "The comparison matrix contains the exact column header 'Paper Title & Year'.", "weight": 1 },
+        { "id": "C5", "criterion": "The comparison matrix contains the exact column header 'Core Method'.", "weight": 1 },
+        { "id": "C6", "criterion": "The comparison matrix contains the exact column header 'Key Innovation'.", "weight": 1 },
+        { "id": "C7", "criterion": "The comparison matrix contains the exact column header 'Main Limitation'.", "weight": 1 },
+        { "id": "C8", "criterion": "The 'Core Method' descriptions accurately reflect the technical implementations of the respective papers.", "weight": 1 },
+        { "id": "C9", "criterion": "The 'Key Innovation' descriptions correctly identify the novel contribution of each paper.", "weight": 1 },
+        { "id": "C10", "criterion": "The 'Main Limitation' extracted for each paper is factually grounded in the paper or community consensus, not a generic complaint.", "weight": 1 },
+        { "id": "C11", "criterion": "Identifies an overarching Research Gap.", "weight": 1 },
+        { "id": "C12", "criterion": "The Research Gap logically connects to at least two of the flaws listed in the matrix.", "weight": 1 },
+        { "id": "C13", "criterion": "Suggests a concrete direction for future research based on the gap.", "weight": 1 },
+        { "id": "C14", "criterion": "Includes a formal references section.", "weight": 1 },
+        { "id": "C15", "criterion": "References include verifiable DOI or ArXiv IDs for all 3 papers.", "weight": 1 }
+      ],
+      "required_evidence": "External evidence is required. Valid DOI/ArXiv IDs must be provided.",
+      "scoring_rubric": {
+        "scoring_method": "Score each criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent/incorrect.",
+        "score_bands": {
+          "Excellent": "90-100%",
+          "Good": "75-89%",
+          "Acceptable": "60-74%",
+          "Poor": "40-59%",
+          "Fail": "Below 40%"
+        },
+        "accuracy": "Factual correctness of Core Method, Key Innovation, and Main Limitation.",
+        "completeness": "Coverage of all 4 sections and 4 matrix columns.",
+        "helpfulness": "Research Gap is actionable and not generic.",
+        "hallucination_penalty": "Penalize fictional paper titles, fabricated authors, or fake DOI/ArXiv IDs.",
+        "hard_fail_rules": [
+          "Severe cap if required scholarly evidence is not cited or if paper details are fabricated."
+        ]
+      },
+      "expected_failure_risks": [
+        "The AI summarizes the abstract instead of actively extracting the specific innovation and flaw.",
+        "The AI hallucinates a flaw that doesn't exist in the paper just to make the final synthesis easier.",
+        "The final Research Gap is disconnected from the table.",
+        "The AI fails to provide verifiable DOI or ArXiv IDs."
+      ],
+      "ground_truth": {
+        "task_type": "Literature Review",
+        "must_have": [
+          "3 authentic PEFT papers.",
+          "4 exact matrix columns.",
+          "Accurate technical extraction of methods and flaws.",
+          "A synthesized gap connecting at least 2 matrix flaws.",
+          "Verifiable DOI/ArXiv IDs in references."
+        ],
+        "must_not_have": [],
+        "critical_fail_conditions": [
+          "Fabricating a flaw.",
+          "Missing DOI/ArXiv IDs."
+        ]
+      }
+    },
+    {
+      "task_id": "MR-03",
+      "category": "Market Research (Competitive Analysis & Strategic Sourcing)",
+      "difficulty": "Hard",
+      "author": "Minjie Geng",
+      "tool_requirement": "Required",
+      "prompt": "You are a Principal Market Research Analyst for a mid-sized US-based Video Production Agency (75 full-time employees, plus hundreds of rotating freelance editors). You are evaluating enterprise cloud storage and collaboration platforms to replace their aging local NAS servers.\n\nConduct a competitive analysis of Dropbox (Advanced Plan), Box (Enterprise Plan), and Microsoft OneDrive for Business (Plan 2).\n\nYour recommendation must navigate the following complex and competing constraints:\n- **The Massive File Bottleneck:** The team routinely edits and syncs 8K raw video files. Single video files frequently exceed 100 GB to 150 GB. True block-level sync (delta sync) is mandatory.\n- **The External Collaborator Tax:** Freelancers must be able to securely upload massive raw footage files directly via shared links without paid SaaS seats.\n- **The Strict Budget Ceiling:** The maximum annual software licensing cost for the 75 internal employees is capped at $25,000 per year.\n- **The Security Requirement:** They need robust link sharing with expiration dates, password protection, and granular access controls.",
+      "required_output_format": "Use the following strict structure:\n\n1. Executive Summary & The Video Production Dilemma.\n2. Comprehensive Comparison Matrix.\n3. Trend Identification (Explain the industry shift from 'Local NAS' to 'Hybrid Cloud Video Workflows' in 2-3 sentences).\n4. Final Strategic Recommendation.\n5. Source List.\n\n### Required Comparison Matrix\n| Platform & Tier | Estimated Annual Cost (75 Users) | Max Single File Upload Limit | Block-Level (Delta) Sync Support | External Free Upload Capabilities |",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Includes an Executive Summary highlighting the conflict between massive media files, licensing costs, and cloud sync limits.", "weight": 1 },
+        { "id": "C2", "criterion": "Matrix includes exact column: 'Platform & Tier'.", "weight": 1 },
+        { "id": "C3", "criterion": "Matrix includes exact column: 'Estimated Annual Cost (75 Users)'.", "weight": 1 },
+        { "id": "C4", "criterion": "Matrix includes exact column: 'Max Single File Upload Limit'.", "weight": 1 },
+        { "id": "C5", "criterion": "Matrix includes exact column: 'Block-Level (Delta) Sync Support'.", "weight": 1 },
+        { "id": "C6", "criterion": "Matrix includes exact column: 'External Free Upload Capabilities'.", "weight": 1 },
+        { "id": "C7", "criterion": "Calculates Dropbox Advanced cost correctly (approx $21,600/year, fits $25k budget).", "weight": 1 },
+        { "id": "C8", "criterion": "Calculates Box Enterprise cost correctly (approx $31,500/year, breaches $25k budget).", "weight": 1 },
+        { "id": "C9", "criterion": "Calculates OneDrive Plan 2 cost correctly (approx $9,000/year, fits budget).", "weight": 1 },
+        { "id": "C10", "criterion": "Identifies that Box Enterprise has a strict single file upload limit (typically 50GB to 150GB, failing the 150GB 8K requirement).", "weight": 1 },
+        { "id": "C11", "criterion": "Identifies OneDrive has a file limit around 250GB.", "weight": 1 },
+        { "id": "C12", "criterion": "Identifies Dropbox has the highest file limit (up to 2TB).", "weight": 1 },
+        { "id": "C13", "criterion": "Identifies Dropbox as the leader in handling massive binary files via block-level delta sync.", "weight": 1 },
+        { "id": "C14", "criterion": "Recognizes 'File Requests' feature (or equivalent) for external free uploads.", "weight": 1 },
+        { "id": "C15", "criterion": "Explains the industry shift from Local NAS to Hybrid Cloud in 2-3 sentences.", "weight": 1 },
+        { "id": "C16", "criterion": "Final recommendation explicitly chooses Dropbox Advanced.", "weight": 1 },
+        { "id": "C17", "criterion": "Justifies eliminating Box due to breaching the budget.", "weight": 1 },
+        { "id": "C18", "criterion": "Justifies eliminating Box due to single file upload limits.", "weight": 1 },
+        { "id": "C19", "criterion": "Justifies eliminating OneDrive due to inferior massive-file delta-sync performance compared to Dropbox.", "weight": 1 },
+        { "id": "C20", "criterion": "Includes a Source List citing public data.", "weight": 1 }
+      ],
+      "required_evidence": "Must use current pricing and file limit specifications from official websites.",
+      "scoring_rubric": {
+        "scoring_method": "Score each criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent/incorrect.",
+        "score_bands": {
+          "Excellent": "90-100%",
+          "Good": "75-89%",
+          "Acceptable": "60-74%",
+          "Poor": "40-59%",
+          "Fail": "Below 40%"
+        },
+        "accuracy": "Must accurately report exact file size limits and pricing.",
+        "completeness": "Must include 5 sections and 5 matrix columns.",
+        "helpfulness": "Must logically synthesize technical and financial constraints.",
+        "hallucination_penalty": "Severe penalty for claiming 'Box has unlimited file sizes' or miscalculating the $25,000 threshold.",
+        "hard_fail_rules": ["Fail if Box is recommended despite budget/file size constraints."]
+      },
+      "expected_failure_risks": [
+        "The File Size Hallucination: Assuming 'Enterprise Cloud = Unlimited' and missing hard technical limits.",
+        "The Budget Silo Failure: Calculating Box costs but failing to realize $31,500 exceeds the $25,000 cap."
+      ],
+      "ground_truth": {
+        "task_type": "Market Research",
+        "must_have": [
+          "Dropbox fits budget, Box breaches budget, OneDrive fits budget.",
+          "Identifies Box file limit weakness.",
+          "Recommends Dropbox Advanced.",
+          "Matrix with 5 exact columns."
+        ],
+        "must_not_have": [],
+        "critical_fail_conditions": [
+          "Recommending Box.",
+          "Claiming Box allows 500GB+ file uploads."
+        ]
+      }
+    },
+    {
+      "task_id": "SE-03",
+      "category": "Software Engineering (System Design)",
+      "difficulty": "Easy",
+      "author": "Minjie Geng",
+      "tool_requirement": "Prohibited",
+      "prompt": "You are a backend architect for a large e-commerce platform. Due to a surge in traffic, your core relational database (MySQL) is facing immense read and write pressure. The team has decided to introduce Redis as a distributed cache.\n\nPlease analyze and compare the following three classic cache and database synchronization strategies:\n- Cache-Aside\n- Write-Through\n- Write-Behind / Write-Back\n\nCompare these three strategies across the following dimensions:\n- Read Latency\n- Write Latency\n- Data Consistency Risk\n- Implementation Complexity\n- Data Loss Risk on Crash\n\nAfter completing the comparison, please analyze the following two different business scenarios and recommend the most suitable caching strategy for each:\n**Scenario A: \"User Profile Page\".** Low update frequency, extremely high read frequency, can tolerate slight latency.\n**Scenario B: \"Flash Sale Likes/Comments\".** Terrifyingly high concurrent write volume. Losing a few scattered likes on crash is tolerable, but system must absolutely not crash.",
+      "required_output_format": "Use the following structure:\n\n1. Brief explanation of operational mechanisms for the three strategies.\n2. Strategy comparison matrix.\n3. Scenario A (User Profile) analysis and recommendation.\n4. Scenario B (Flash Sale Likes) analysis and recommendation.\n\n| Strategy | Read Latency | Write Latency | Consistency Risk | Complexity | Data Loss Risk |",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Correctly explains Cache-Aside (app reads/writes both cache and DB).", "weight": 1 },
+        { "id": "C2", "criterion": "Correctly explains Write-Through (app writes to cache, cache component synchronously writes to DB).", "weight": 1 },
+        { "id": "C3", "criterion": "Correctly explains Write-Behind / Write-Back (app writes to cache, cache component asynchronously/batch writes to DB).", "weight": 1 },
+        { "id": "C4", "criterion": "Table contains exact column 'Strategy'.", "weight": 1 },
+        { "id": "C5", "criterion": "Table contains exact column 'Read Latency'.", "weight": 1 },
+        { "id": "C6", "criterion": "Table contains exact column 'Write Latency'.", "weight": 1 },
+        { "id": "C7", "criterion": "Table contains exact column 'Consistency Risk'.", "weight": 1 },
+        { "id": "C8", "criterion": "Table contains exact column 'Complexity'.", "weight": 1 },
+        { "id": "C9", "criterion": "Table contains exact column 'Data Loss Risk'.", "weight": 1 },
+        { "id": "C10", "criterion": "Identifies Write-Through has high write latency but excellent consistency.", "weight": 1 },
+        { "id": "C11", "criterion": "Identifies Write-Behind has extremely fast write latency.", "weight": 1 },
+        { "id": "C12", "criterion": "Identifies Write-Behind carries data loss risk on system crash.", "weight": 1 },
+        { "id": "C13", "criterion": "Scenario A recommends Cache-Aside (or Write-Through).", "weight": 1 },
+        { "id": "C14", "criterion": "Scenario A justifies choice citing the 'read-heavy, write-light' profile.", "weight": 1 },
+        { "id": "C15", "criterion": "Scenario B strictly recommends Write-Behind (Write-Back).", "weight": 1 },
+        { "id": "C16", "criterion": "Scenario B justifies choice stating asynchronous batching protects the DB from write concurrency.", "weight": 1 },
+        { "id": "C17", "criterion": "Scenario B acknowledges that the business tolerance for lost likes perfectly offsets Write-Behind's crash data-loss risk.", "weight": 1 }
+      ],
+      "required_evidence": "No external citations required. Based on consensus caching architecture.",
+      "scoring_rubric": {
+        "scoring_method": "Score each criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent/incorrect.",
+        "score_bands": {
+          "Excellent": "90-100%",
+          "Good": "75-89%",
+          "Acceptable": "60-74%",
+          "Poor": "40-59%",
+          "Fail": "Below 40%"
+        },
+        "accuracy": "Explanation of strategies must be technically sound.",
+        "completeness": "4 layout sections and 6 matrix columns present.",
+        "helpfulness": "Scenarios logically tie technical traits to business limits.",
+        "hallucination_penalty": "Zero points if Write-Behind is described as synchronously writing to the DB. Penalize invented QPS benchmark data.",
+        "hard_fail_rules": ["Fail if Write-Behind is not recommended for Scenario B."]
+      },
+      "expected_failure_risks": [
+        "Concept Confusion: Confusing Write-Through with Cache-Aside.",
+        "Ignoring Business Tradeoffs: Recommending Write-Through for Flash Sales out of 'data purity obsession', ignoring the crash warning.",
+        "Format Violations: Missing or altering table columns."
+      ],
+      "ground_truth": {
+        "task_type": "Software Engineering",
+        "must_have": [
+          "Accurate definitions of all 3 strategies.",
+          "Table with 6 exact columns.",
+          "Write-Behind recognized as fast but risky for data loss.",
+          "Cache-Aside recommended for Scenario A.",
+          "Write-Behind recommended for Scenario B due to tradeoff limits."
+        ],
+        "must_not_have": ["Invented QPS numbers."],
+        "critical_fail_conditions": [
+          "Defining Write-Behind as synchronous.",
+          "Recommending synchronous writes for Flash Sales."
+        ]
+      }
+    },
+    {
+      "task_id": "SP-03",
+      "category": "Strategic Planning (Product Launch & Roadmap)",
+      "difficulty": "Easy",
+      "author": "Minjie Geng",
+      "tool_requirement": "Prohibited",
+      "prompt": "You are creating a product launch roadmap for a new B2B software application. The company uses a standard 3-phase release strategy: Alpha Release, Beta Release, and General Availability (GA).\n\nFirst, create a mapping table that assigns the correct Target Audience to each phase. You must choose the audience strictly from the following three options:\n[Entire Public Market], [Internal Employees / QA Team], [Selected External Early Adopters].\n\nThe table must use exactly these columns:\nRelease Phase, Target Audience, and Primary Strategic Objective (1 sentence).\n\nSecond, answer the following simple scenario in one sentence:\n**Scenario:** During the Beta Release, the team discovers a critical security vulnerability that allows unauthorized data access. The Marketing team wants to ignore it and push to General Availability (GA) tomorrow to meet the deadline. As the Strategic Planner, do you approve the push to GA or halt the launch? Provide a brief justification.",
+      "required_output_format": "Use the following strict structure:\n\n1. Release Roadmap Table (using the exact column headers requested).\n2. Scenario Decision (stating 'Approve' or 'Halt' with a 1-sentence justification).",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Table contains exactly the column 'Release Phase'.", "weight": 1 },
+        { "id": "C2", "criterion": "Table contains exactly the column 'Target Audience'.", "weight": 1 },
+        { "id": "C3", "criterion": "Table contains exactly the column 'Primary Strategic Objective'.", "weight": 1 },
+        { "id": "C4", "criterion": "Correctly maps Alpha Release to [Internal Employees / QA Team].", "weight": 1 },
+        { "id": "C5", "criterion": "Alpha objective focuses on finding initial bugs/verifying basic functionality.", "weight": 1 },
+        { "id": "C6", "criterion": "Correctly maps Beta Release to [Selected External Early Adopters].", "weight": 1 },
+        { "id": "C7", "criterion": "Beta objective focuses on gathering real-world user feedback/stability.", "weight": 1 },
+        { "id": "C8", "criterion": "Correctly maps GA to [Entire Public Market].", "weight": 1 },
+        { "id": "C9", "criterion": "Scenario decision explicitly states to 'Halt' the launch.", "weight": 1 },
+        { "id": "C10", "criterion": "Scenario justification explains that critical security/privacy risks outweigh marketing deadlines.", "weight": 1 }
+      ],
+      "required_evidence": "No external citations are required. Tests fundamental risk management.",
+      "scoring_rubric": {
+        "scoring_method": "Score each criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent/incorrect.",
+        "score_bands": {
+          "Excellent": "90-100%",
+          "Good": "75-89%",
+          "Acceptable": "60-74%",
+          "Poor": "40-59%",
+          "Fail": "Below 40%"
+        },
+        "accuracy": "Strict factual mapping of the predefined audiences to phases.",
+        "completeness": "Table with 3 rows/3 columns, plus scenario answer.",
+        "helpfulness": "Clearly states the decision before justifying.",
+        "hallucination_penalty": "Penalize inventing new audience options not in the prompt.",
+        "hard_fail_rules": ["Fail if the decision is to 'Approve' the launch despite the security vulnerability."]
+      },
+      "expected_failure_risks": [
+        "Audience Mismatch: Swapping audiences for Alpha and Beta.",
+        "Ignoring Constraints: Inventing new audience string descriptions.",
+        "Poor Prioritization: Approving the launch to GA due to marketing pressure."
+      ],
+      "ground_truth": {
+        "task_type": "Strategic Planning",
+        "must_have": [
+          "Alpha -> Internal QA",
+          "Beta -> External Early Adopters",
+          "GA -> Entire Public Market",
+          "Scenario Decision -> Halt"
+        ],
+        "must_not_have": [],
+        "critical_fail_conditions": [
+          "Approving the GA launch with a security vulnerability.",
+          "Using audiences other than the three provided."
+        ]
+      }
+    },
+    {
+      "task_id": "TA-03",
+      "category": "Technical Analysis",
+      "difficulty": "Medium",
+      "author": "Minjie Geng",
+      "tool_requirement": "Prohibited",
+      "prompt": "A Retrieval-Augmented Generation (RAG) system deployed in a sensitive domain must rigorously evaluate and verify its generated outputs to prevent hallucinations. The engineering team is actively testing the limits of current LLMs by intentionally inducing model failures to observe how different verification mechanisms handle them.\n\nAnalyze and compare the following three technical approaches for verifying RAG outputs:\n- **Embedding-based semantic similarity:** Compute the cosine similarity between the generated answer's embedding and the retrieved source document's embedding.\n- **LLM-as-a-Judge:** Prompt a secondary LLM to holistically evaluate the primary model's answer.\n- **Identify-then-Verify pipeline:** Use a structured gate mechanism that first extracts discrete factual claims from the generated answer, then independently verifies each claim.\n\nCompare the three approaches in terms of:\n- Evaluation granularity\n- Computational cost\n- System latency\n- Implementation complexity\n- Susceptibility to adversarial edge cases\n- Main failure risks\n\nThen recommend the most suitable approach for a system that delivers highly personalized, domain-specific support where delivering false information carries severe consequences. Justify the recommendation and identify one situation in which the recommended approach may perform poorly.",
+      "required_output_format": "Use the following structure:\n\n1. Brief explanation of embedding-based semantic similarity\n2. Brief explanation of LLM-as-a-Judge\n3. Brief explanation of Identify-then-Verify pipeline\n4. Comparison table\n5. Final recommendation\n6. Limitation of the recommended approach\n\nThe comparison table must use the following columns:\n| Approach | Granularity | Cost | Latency | Implementation Complexity | Edge-Case Susceptibility | Main Failure Risk |",
+      "evaluation_criteria": [
+        { "id": "C1", "criterion": "Explains embedding-based similarity (measures spatial distance, fast, but misses logical contradictions).", "weight": 1 },
+        { "id": "C2", "criterion": "Explains LLM-as-a-Judge (holistic prompt evaluation, but inherits biases/hallucinations).", "weight": 1 },
+        { "id": "C3", "criterion": "Explains Identify-then-Verify (breaks text into sub-claims for discrete verification).", "weight": 1 },
+        { "id": "C4", "criterion": "Table contains exact column 'Approach'.", "weight": 1 },
+        { "id": "C5", "criterion": "Table contains exact column 'Granularity'.", "weight": 1 },
+        { "id": "C6", "criterion": "Table contains exact column 'Cost'.", "weight": 1 },
+        { "id": "C7", "criterion": "Table contains exact column 'Latency'.", "weight": 1 },
+        { "id": "C8", "criterion": "Table contains exact column 'Implementation Complexity'.", "weight": 1 },
+        { "id": "C9", "criterion": "Table contains exact column 'Edge-Case Susceptibility'.", "weight": 1 },
+        { "id": "C10", "criterion": "Table contains exact column 'Main Failure Risk'.", "weight": 1 },
+        { "id": "C11", "criterion": "Notes embedding similarity is highly susceptible to adversarial edge cases (e.g., matching keywords while reversing meaning).", "weight": 1 },
+        { "id": "C12", "criterion": "Notes LLM-as-a-Judge can be fooled by highly plausible but induced edge-case failures.", "weight": 1 },
+        { "id": "C13", "criterion": "Notes Identify-then-Verify offers highest granularity but increases latency and complexity.", "weight": 1 },
+        { "id": "C14", "criterion": "Final recommendation explicitly selects 'Identify-then-Verify' for the sensitive domain.", "weight": 1 },
+        { "id": "C15", "criterion": "Justifies recommendation based on the severe consequences of false information requiring strict gating.", "weight": 1 },
+        { "id": "C16", "criterion": "Identifies one realistic situation where Identify-then-Verify performs poorly (e.g., real-time chat limits, high latency).", "weight": 1 },
+        { "id": "C17", "criterion": "Does not invent numerical performance results (e.g., 'latency is exactly 200ms').", "weight": 1 }
+      ],
+      "required_evidence": "No external citations required. Use conceptual technical reasoning.",
+      "scoring_rubric": {
+        "scoring_method": "Score each criterion independently: 1 = fully satisfied, 0.5 = partially satisfied, 0 = absent/incorrect.",
+        "score_bands": {
+          "Excellent": "90-100%",
+          "Good": "75-89%",
+          "Acceptable": "60-74%",
+          "Poor": "40-59%",
+          "Fail": "Below 40%"
+        },
+        "accuracy": "Technical descriptions of verification methods must be sound.",
+        "completeness": "6 distinct sections and 7 matrix columns must be present.",
+        "helpfulness": "Recommendation provides actionable guidance for sensitive, low-tolerance environments.",
+        "hallucination_penalty": "Strictly penalize invented numerical benchmarks, fake token costs, or fabricated empirical results.",
+        "hard_fail_rules": ["Fail if Tool Usage is utilized (Tool Requirement: Prohibited)."]
+      },
+      "expected_failure_risks": [
+        "Confusing embedding similarity with exact string matching.",
+        "Assuming LLM judge is infallible against induced failures.",
+        "Inventing numerical accuracy, latency, or token results."
+      ],
+      "ground_truth": {
+        "task_type": "Technical Analysis",
+        "must_have": [
+          "Accurate definitions of the 3 verification pipelines.",
+          "Comparison matrix with 7 exact columns.",
+          "Identify-then-Verify recommended for sensitive domain.",
+          "Recognition of Identify-then-Verify's latency tradeoff."
+        ],
+        "must_not_have": ["Invented numerical metrics (ms, %, $, tokens)."],
+        "critical_fail_conditions": [
+          "Fabricating empirical benchmark data."
+        ]
+      }
+    }
+  ]
+}
