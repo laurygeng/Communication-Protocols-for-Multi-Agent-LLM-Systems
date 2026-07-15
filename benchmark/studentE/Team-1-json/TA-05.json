@@ -1,0 +1,61 @@
+{
+  "task_id": "TA-05",
+  "title": "Comparing ReAct and Reflexion for Long-Horizon Agent Tasks",
+  "category": "Technical Analysis",
+  "difficulty": "Medium",
+  "prompt": "Using only the two provided papers, compare ReAct and Reflexion as approaches for improving the behavior of language-model agents.\n\nProvided papers:\n1. ReAct: Synergizing Reasoning and Acting in Language Models\n2. Reflexion: Language Agents with Verbal Reinforcement Learning\n\nExplain and compare the two approaches in terms of:\n- Core mechanism\n- When reasoning or reflection is triggered\n- Timescale of improvement\n- Memory or context usage\n- Use of observations, feedback, or evaluation signals\n- Main strength\n- Main limitation\n- How the two approaches may be combined\n\nYour analysis must clearly distinguish temporary within-attempt context or reasoning history in ReAct from persistent cross-attempt reflective memory in Reflexion.\n\nFor ReAct, explain how reasoning traces and actions are interleaved during one task attempt and how observations from the environment influence the next reasoning or action step.\n\nFor Reflexion, explain how an agent evaluates the outcome of an attempt and generates verbal feedback or reflection when improvement is needed, especially after failure or inadequate performance. Clarify that Reflexion improves later attempts through stored verbal reflections rather than by updating the language model's weights.\n\nThen analyze a long-horizon task that may involve both many steps within one attempt and multiple attempts after failure. Recommend whether ReAct, Reflexion, or a combination of both is most suitable. Justify the recommendation with at least three technical reasons and identify one limitation or implementation risk of the recommended approach.\n\nInclude a comparison table with the columns: Dimension, ReAct, Reflexion, Relationship or Practical Impact. The table should contain at least the following rows: Core Mechanism, Trigger or Timing, Timescale, Memory Usage, Feedback Usage, Main Strength, Main Limitation, and Combination Potential.\n\nUse only the two provided papers as the primary evidence. Do not use web search, external sources, or claims that are not supported by the papers. The response should be approximately 600-800 words.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "ReAct Mechanism",
+      "Reflexion Mechanism",
+      "Comparison Table",
+      "Key Distinctions",
+      "How ReAct and Reflexion Can Be Combined",
+      "Recommendation for a Long-Horizon Task",
+      "Limitation of the Recommended Approach"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all seven required sections; analysis of both ReAct and Reflexion; coverage of all eight comparison dimensions; a complete comparison table using all four specified columns and at least the eight required rows; one explanation of how the methods can be combined; one clear recommendation; at least three supporting reasons; and one limitation or risk. Reduce proportionally for each missing section or required element."
+    },
+    {
+      "criterion": "react_technical_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a technically correct explanation that ReAct interleaves language-model reasoning traces with actions and environment observations during a task attempt. The answer should explain that observations influence subsequent reasoning and actions and that the reasoning history is typically maintained in temporary within-attempt context or a scratchpad. It must not claim that ReAct inherently performs model-weight updates, automatically creates persistent cross-attempt memory, or requires a separate long-term memory module."
+    },
+    {
+      "criterion": "reflexion_technical_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a technically correct explanation that Reflexion uses outcome signals, evaluator feedback, or task results to generate verbal reflections that can guide later attempts. The response must distinguish this cross-attempt reflective memory from ordinary within-attempt reasoning and clarify that the method does not improve behavior by updating the base model's weights. It should not imply that reflection is necessarily generated after every successful attempt or that Reflexion is simply a longer chain of thought."
+    },
+    {
+      "criterion": "comparison_and_distinction_quality",
+      "weight": 0.2,
+      "description": "Full credit requires a direct and technically meaningful comparison of core mechanism, trigger or timing, timescale, memory usage, feedback usage, strengths, limitations, and combination potential. The answer must clearly distinguish improvement within one attempt from improvement across multiple attempts. The table and prose should explain practical consequences rather than merely repeat definitions."
+    },
+    {
+      "criterion": "complementarity_and_combination_reasoning",
+      "weight": 0.1,
+      "description": "Full credit requires a plausible explanation of how Reflexion can use a ReAct-style actor or how ReAct can manage step-by-step interaction within an attempt while Reflexion stores higher-level lessons for later attempts. The response should explain the division of roles and information flow between the two mechanisms. Simply stating that they can be combined without describing how receives little or no credit."
+    },
+    {
+      "criterion": "recommendation_and_limitation_analysis",
+      "weight": 0.2,
+      "description": "Full credit requires one clear recommendation for a task involving both many within-attempt steps and possible repeated attempts. The recommendation must be supported by at least three technical reasons tied to execution, feedback, memory, or error recovery and must identify one realistic limitation or implementation risk, such as poor-quality reflections, context growth, memory contamination, evaluator errors, added cost, or repeated propagation of incorrect lessons. A recommendation based only on general preference receives no more than half credit."
+    },
+    {
+      "criterion": "clarity_and_evidence_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, consistent terminology, readable Markdown, the required table, and approximately 600-800 words. Claims should be traceable to the two provided papers. Deduct for fabricated experimental results, unsupported numerical comparisons, external citations, confusion between thought and reflection, or claims that either approach guarantees success."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": [
+  "react.pdf",
+  "reflexion.pdf"
+]
+}

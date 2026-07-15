@@ -1,0 +1,65 @@
+{
+  "task_id": "SE-04",
+  "title": "Backend Architecture for a Document-Processing and Search Service",
+  "category": "Software Engineering",
+  "difficulty": "Medium",
+  "prompt": "Design the backend software architecture for a document-processing and search service.\n\nThe service must allow users to upload PDF, TXT, and Markdown files. After upload, it must validate file type and size, store the original file and metadata, extract text, divide text into searchable sections, create a searchable index, support document search, and report processing status.\n\nThe design must also support asynchronous processing, retryable failed steps, prevention of unnecessary duplicate records for repeated uploads, easy addition of new document formats, and maintainability for a small development team.\n\nProduce a software design covering: system overview; main components and responsibilities; end-to-end workflow; REST API design; data model; suggested project structure; error handling, retry, and duplicate prevention; testing plan; and at least one meaningful design tradeoff.\n\nInclude a Component Table with columns: Component, Main Responsibility, Input, Output. Include an API Table with columns: Method, Endpoint, Purpose, Main Request Data, Main Response Data.\n\nProvide a software design rather than a complete runnable application. Short pseudocode, interface definitions, data structures, example JSON, or code snippets may be included when they clarify the design.\n\nThe response should be approximately 700-900 words. No external citations are required. Do not claim that the proposed system has been implemented, empirically tested, or proven to achieve specific performance results.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "System Overview",
+      "Main Components and Responsibilities",
+      "End-to-End Processing Workflow",
+      "REST API Design",
+      "Data Model",
+      "Suggested Project Structure",
+      "Error Handling, Retry, and Duplicate Prevention",
+      "Testing Plan",
+      "Design Tradeoff"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all nine required sections, both required tables, and coverage of validation, storage, extraction, chunking, indexing, search, status tracking, retry, duplicate prevention, extensibility, testing, and one design tradeoff. Reduce proportionally for missing elements."
+    },
+    {
+      "criterion": "architecture_and_component_design",
+      "weight": 0.2,
+      "description": "Full credit requires clear separation of file validation, storage, text extraction, chunking, indexing, search, and status management into coherent responsibilities. Components must have sensible interfaces and data flow. A monolithic design with poorly separated concerns receives limited credit."
+    },
+    {
+      "criterion": "workflow_and_state_management",
+      "weight": 0.15,
+      "description": "Full credit requires a complete upload-to-search workflow and explicit processing states such as uploaded, processing, completed, and failed. The design must explain asynchronous execution and how state transitions are recorded. Missing status tracking or an incomplete workflow should substantially reduce the score."
+    },
+    {
+      "criterion": "api_and_data_model_quality",
+      "weight": 0.15,
+      "description": "Full credit requires suitable API operations for upload, processing-status retrieval, search, and document retrieval or deletion; all five required API-table columns; and a data model containing document identity, file metadata, processing status, timestamps, and error information. Vague endpoints or missing request/response details should reduce the score."
+    },
+    {
+      "criterion": "reliability_retry_and_deduplication",
+      "weight": 0.15,
+      "description": "Full credit requires a concrete duplicate-detection method such as a checksum or content hash, idempotent or step-aware retry behavior, and an explanation of how completed work is not incorrectly repeated. Simply saying 'retry on failure' or 'detect duplicates' without a mechanism receives no more than half credit."
+    },
+    {
+      "criterion": "extensibility_and_maintainability",
+      "weight": 0.1,
+      "description": "Full credit requires modular extractor or parser interfaces for adding new formats, a realistic folder or project structure, and a design proportionate to a small team. Unnecessary microservices or complexity without justification should reduce the score."
+    },
+    {
+      "criterion": "testing_and_tradeoff_analysis",
+      "weight": 0.05,
+      "description": "Full credit requires unit, integration, and end-to-end testing considerations, plus at least one meaningful design tradeoff with consequences explained. A generic test list or tradeoff without rationale receives partial credit."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, internally consistent architecture and data flow, readable Markdown, both required tables, and 700-900 words. Deduct for unsupported guarantees about performance, scalability, security certification, reliability, or claims that the system has already been implemented or tested."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

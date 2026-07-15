@@ -1,0 +1,73 @@
+{
+  "task_id": "SP-04",
+  "title": "AI Customer-Support Assistant Pilot and Launch Strategy",
+  "category": "Strategic Planning",
+  "difficulty": "Hard",
+  "prompt": "Create a 12-week strategy for piloting and deciding whether to launch an AI-powered customer-support assistant for a mid-sized e-commerce company.\n\nThe company currently handles approximately 50,000 customer-support requests per month.\n\nCurrent performance:\n- Average first-response time: 18 hours\n- Customer satisfaction score: 78%\n- Support agents frequently spend time answering repetitive questions\n- Refunds, account changes, and payment disputes require human approval\n\nThe company wants the pilot to achieve the following goals:\n- Reduce average first-response time to 8 hours or less\n- Increase customer satisfaction to at least 84%\n- Reduce repetitive workload for support agents\n- Avoid unsafe or unauthorized actions\n- Protect customer and payment-related information\n\nThe project has the following constraints:\n- Total budget: $180,000\n- Total duration: 12 weeks\n- A limited pilot must begin by the end of Week 8\n- A final launch, revision, or cancellation decision must be made by the end of Week 12\n- The system may draft responses and recommend actions, but it may not independently issue refunds, modify accounts, or resolve payment disputes\n- Payment-card information must not be included in model inputs\n- Project team: 1 Product Manager, 1 Machine Learning Engineer, 1 Backend Engineer, 0.5 Full-Time Data Analyst, 0.5 Full-Time Customer Support Lead, and 0.25 Full-Time Privacy and Legal Specialist\n- Eight customer-support agents may participate in testing for no more than two hours per person per week\n\nDevelop a practical strategy that balances delivery speed, service quality, employee workload, privacy, safety, and budget.\n\nThe plan must also address two possible disruptions:\n1. At the end of Week 6, the available budget may be reduced by 20%.\n2. At the end of Week 9, the pilot may show faster response times but fail to reach the customer-satisfaction target.\n\nThe response must include: an executive summary; strategic priorities; assumptions and scope boundaries; a complete 12-week roadmap; team responsibilities; a budget totaling exactly $180,000; pilot design; success metrics and go/no-go thresholds; a risk register with at least six risks; disruption-response plans; and a final decision framework distinguishing launch, limited extension or revision, and cancellation.\n\nUse the following required tables:\n1. Roadmap: Phase and Weeks | Main Activities | Deliverables | Responsible Roles | Exit Criteria\n2. Budget: Budget Category | Amount | Purpose | Priority if Budget Is Reduced\n3. Success Metrics: Metric | Baseline | Target | Measurement Method | Go/No-Go Threshold\n4. Risk Register: Risk | Likelihood | Impact | Early Warning Sign | Mitigation | Contingency Owner\n\nThe response should be approximately 1,000-1,400 words. Use only the information and constraints provided. Clearly label any additional assumptions. Do not invent completed pilot results or claim that the strategy has already been tested.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Executive Summary",
+      "Strategic Objectives and Priorities",
+      "Assumptions and Scope Boundaries",
+      "Twelve-Week Phased Roadmap",
+      "Team Responsibilities",
+      "Budget Allocation",
+      "Pilot Design",
+      "Success Metrics and Decision Thresholds",
+      "Risk Register",
+      "Disruption-Response Plans",
+      "Final Decision Framework",
+      "Conclusion"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all 12 required sections, all four required tables, at least six risks, both disruption scenarios, and a final framework covering launch, revision or extension, and cancellation. Reduce the score proportionally for each missing section, table, risk entry, disruption response, or decision option."
+    },
+    {
+      "criterion": "roadmap_and_timeline_quality",
+      "weight": 0.15,
+      "description": "Full credit requires a roadmap covering all 12 weeks with clear phases, dependencies, deliverables, owners, and exit criteria; the limited pilot must begin no later than the end of Week 8; and the final decision must occur by the end of Week 12. Missing either mandatory deadline should receive no more than half credit for this criterion."
+    },
+    {
+      "criterion": "resource_and_staffing_feasibility",
+      "weight": 0.1,
+      "description": "Evaluate whether responsibilities are consistent with the stated team capacity and whether support-agent testing stays within eight agents at no more than two hours per person per week. Full credit requires realistic ownership, no over-allocation of fractional roles, and no violation of the support-agent time limit."
+    },
+    {
+      "criterion": "budget_accuracy_and_prioritization",
+      "weight": 0.1,
+      "description": "Full credit requires budget line items totaling exactly $180,000, a clear purpose for each category, and explicit priority labels showing what is protected, reduced, delayed, or removed if the budget falls by 20%. An incorrect total receives zero credit for the budget-total portion and substantially reduces this criterion."
+    },
+    {
+      "criterion": "metrics_and_decision_thresholds",
+      "weight": 0.15,
+      "description": "Full credit requires measurable entries for response time, customer satisfaction, workload reduction, response quality, safety or unauthorized-action rate, privacy compliance, and pilot adoption or usage. Each metric must include baseline where available, target, measurement method, and a concrete go/no-go threshold. Vague goals without decision thresholds should receive no more than half credit."
+    },
+    {
+      "criterion": "safety_privacy_and_scope_control",
+      "weight": 0.1,
+      "description": "Full credit requires explicit human approval for refunds, account changes, and payment disputes; exclusion of payment-card information from model inputs; controls for unsafe, incorrect, or unauthorized recommendations; and preservation of critical privacy and safety work under budget pressure. Any plan allowing autonomous restricted actions should receive zero credit here."
+    },
+    {
+      "criterion": "risk_and_contingency_planning",
+      "weight": 0.1,
+      "description": "Full credit requires at least six relevant risks, each with likelihood, impact, an early warning sign, mitigation, and a contingency owner. Risks must include privacy and unauthorized-action concerns. The plan must provide practical responses to both the Week 6 budget cut and the Week 9 customer-satisfaction shortfall."
+    },
+    {
+      "criterion": "strategic_reasoning_and_decision_quality",
+      "weight": 0.1,
+      "description": "Evaluate whether the plan balances speed, quality, employee workload, cost, safety, and privacy; avoids treating faster response time alone as sufficient for launch; and uses evidence from the proposed pilot metrics to distinguish launch, revision or extension, and cancellation. Full credit requires clear tradeoffs and prioritized actions."
+    },
+    {
+      "criterion": "clarity_consistency_and_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, internally consistent dates, staffing, budget, targets, and assumptions, plus a response length of 1,000-1,400 words. Do not award full credit if the answer invents completed pilot results, guarantees business outcomes, contradicts stated constraints, or contains inconsistent calculations."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

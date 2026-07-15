@@ -1,0 +1,60 @@
+{
+  "task_id": "EC-05",
+  "title": "Explaining Communication Protocols in Multi-Agent LLM Systems",
+  "category": "Educational Content",
+  "difficulty": "Easy",
+  "prompt": "Explain what a communication protocol is in a multi-agent LLM system to a beginner who already understands what an AI agent is but has never studied multi-agent communication.\n\nThe explanation must describe what a communication protocol controls and why it is needed when multiple AI agents work together.\n\nUse the following structure:\n1. Plain-Language Definition\n2. Two Things a Communication Protocol Controls\n3. Why Communication Protocols Are Important\n4. Real-World Analogy\n\nIn the second section, identify exactly two elements that a communication protocol may control. Valid examples include which agent communicates, when an agent communicates, what information is shared, which agents can see a message, the order of communication, or when the interaction ends.\n\nIn the third section, explain at least one coordination problem that a communication protocol can help reduce, such as duplicated work, missing information, conflicting actions, or unclear responsibilities.\n\nIn the final section, use one simple real-world analogy, such as a classroom group project, workplace team, restaurant staff, or sports team, and clearly connect the analogy to communication among AI agents.\n\nKeep the response between 120 and 200 words. Use beginner-friendly language. Do not use external sources, web search, citations, statistics, or unsupported claims about the performance of specific systems.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Plain-Language Definition",
+      "Two Things a Communication Protocol Controls",
+      "Why Communication Protocols Are Important",
+      "Real-World Analogy"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.2,
+      "description": "Full credit requires all four required sections, exactly two clearly identified protocol-controlled elements, at least one coordination problem, and one real-world analogy. Reduce proportionally for each missing section or required element. If the answer provides fewer than two controlled elements or omits the analogy, this criterion should receive no more than half credit."
+    },
+    {
+      "criterion": "definition_accuracy",
+      "weight": 0.2,
+      "description": "Full credit requires a technically correct plain-language definition explaining that a communication protocol is a set of rules or an organized structure that determines how multiple AI agents exchange information and coordinate their work. The answer must not describe the protocol as an AI model, an individual agent, a physical network connection, or merely a software tool. Minor wording differences are acceptable when the core meaning is preserved."
+    },
+    {
+      "criterion": "control_elements_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires exactly two valid and distinct controlled elements. Acceptable elements include speaker or agent selection, communication timing, message order, information content, message visibility, maximum communication rounds, or termination conditions. Each element must be briefly explained rather than only named. Repeated or overlapping elements count as one. Invalid examples, such as model training data or hardware speed, should not receive credit."
+    },
+    {
+      "criterion": "importance_and_coordination_reasoning",
+      "weight": 0.15,
+      "description": "Full credit requires a clear explanation of why communication rules are needed when several agents work together and correctly connects the protocol to at least one coordination problem, such as duplicated work, lost or missing information, conflicting actions, unclear responsibilities, role confusion, or premature completion. The response should explain the connection, not merely list a problem."
+    },
+    {
+      "criterion": "analogy_quality",
+      "weight": 0.1,
+      "description": "Full credit requires one simple, relevant real-world analogy and an explicit mapping between the analogy and a multi-agent system. For example, team members may represent agents and meeting rules or assigned speaking order may represent the communication protocol. An analogy that is present but not explained receives partial credit. An unrelated analogy receives no credit."
+    },
+    {
+      "criterion": "beginner_accessibility",
+      "weight": 0.1,
+      "description": "Full credit requires clear, beginner-friendly wording, short or moderately sized sentences, and minimal technical jargon. Any necessary technical term should be explained in context. Reduce the score for dense academic language, unexplained terminology, or examples that assume prior knowledge of specific multi-agent frameworks."
+    },
+    {
+      "criterion": "format_and_length_compliance",
+      "weight": 0.05,
+      "description": "Full credit requires readable Markdown using the four specified section headings and a total response length between 120 and 200 words. A response outside the word range or with minor heading differences receives partial credit. A response that ignores the requested structure receives little or no credit."
+    },
+    {
+      "criterion": "evidence_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires a conceptual answer with no external citations, web-derived facts, invented statistics, fabricated empirical comparisons, or unsupported claims about named systems. Mentioning a specific framework is unnecessary. Any invented performance number or false factual claim should substantially reduce this score."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

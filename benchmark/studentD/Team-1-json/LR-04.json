@@ -1,0 +1,59 @@
+{
+  "task_id": "LR-04",
+  "title": "Communication Methods in Multi-Agent LLM Systems",
+  "category": "Literature Review",
+  "difficulty": "Medium",
+  "prompt": "Write a 500-800 word literature review on communication methods in multi-agent LLM systems. Briefly summarize the purpose of communication in multi-agent LLM systems and the main research problems addressed in this field. Then review and compare the following three high-level communication patterns: (1) direct or message-passing communication, (2) shared-workspace communication such as shared memory or blackboard systems, and (3) discussion-based communication such as group discussion, debate, or iterative critique. Real systems may combine more than one pattern. For each category, explain the general approach, provide at least one relevant literature example, and identify one main strength and one main limitation. Include a comparison table with the columns: Method Category, General Approach, Literature Example, Main Strength, and Main Limitation. Finally, identify one specific unresolved issue or research gap supported by limitations discussed in at least two reviewed sources, explain why it matters, and propose one related future research direction. Cite at least three reliable sources, including at least two academic papers, conference papers, journal articles, or recognized research preprints. Use in-text citations that correspond to the reference list.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Field Overview",
+      "Direct or Message-Passing Communication",
+      "Shared-Workspace Communication",
+      "Discussion-Based Communication",
+      "Comparison Table",
+      "Research Gap and Future Research Direction",
+      "Conclusion",
+      "References"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.2,
+      "description": "Full credit requires all eight required sections; coverage of all three communication categories; and, for each category, a general approach, one literature example, one strength, and one limitation. The answer must also include one research gap and one future direction."
+    },
+    {
+      "criterion": "technical_accuracy",
+      "weight": 0.2,
+      "description": "Evaluate whether the field overview and all three communication patterns are technically correct and clearly distinguished. Each category contributes one third of this criterion."
+    },
+    {
+      "criterion": "source_and_citation_quality",
+      "weight": 0.15,
+      "description": "Full credit requires at least three reliable sources, at least two academic sources, at least one cited source supporting each communication category, and complete correspondence between in-text citations and reference-list entries."
+    },
+    {
+      "criterion": "comparison_and_synthesis",
+      "weight": 0.15,
+      "description": "Full credit requires synthesis across sources rather than paper-by-paper listing, direct comparison of all three categories, discussion of meaningful tradeoffs, and a complete comparison table using all five specified columns."
+    },
+    {
+      "criterion": "research_gap_quality",
+      "weight": 0.1,
+      "description": "Full credit requires one specific and plausible research gap, support from limitations or unresolved issues in at least two reviewed sources, an explanation of why the gap matters, and one feasible future direction directly addressing it."
+    },
+    {
+      "criterion": "evidence_integrity",
+      "weight": 0.15,
+      "description": "Full credit requires no fabricated papers, authors, venues, publication details, empirical results, or unsupported factual claims. Any fabricated source receives zero credit for this criterion and should be flagged as a critical failure."
+    },
+    {
+      "criterion": "clarity_and_format",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, consistent terminology, the required Markdown structure, the specified comparison table, and a total length of 500-800 words."
+    }
+  ],
+  "tool_requirement": "Required",
+  "input_files": []
+}

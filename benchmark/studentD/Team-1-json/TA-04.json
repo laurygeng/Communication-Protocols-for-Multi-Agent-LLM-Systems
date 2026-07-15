@@ -1,0 +1,57 @@
+{
+  "task_id": "TA-04",
+  "title": "Comparing Long-Document Question-Answering Approaches",
+  "category": "Technical Analysis",
+  "difficulty": "Medium",
+  "prompt": "A system must answer questions based on a collection of long technical documents. The documents may exceed the language model's context-window limit.\n\nAnalyze and compare the following three technical approaches:\n\n1. Full-context prompting: place as much document content as possible directly into the model prompt.\n2. Retrieval-augmented generation: divide documents into chunks, retrieve relevant chunks for each question, and provide them to the model.\n3. Hierarchical summarization: summarize document sections first, combine the section summaries into higher-level summaries, and use the summaries to answer questions.\n\nCompare the three approaches in terms of:\n- Information coverage\n- Answer accuracy and grounding\n- Context-window usage\n- Computational cost\n- Implementation complexity\n- Main failure risks\n\nThen recommend the most suitable approach for a system that must answer detailed questions about a large collection of technical manuals. Justify the recommendation and identify one situation in which the recommended approach may perform poorly.\n\nUse qualitative technical reasoning. Do not invent numerical performance results.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Full-Context Prompting",
+      "Retrieval-Augmented Generation",
+      "Hierarchical Summarization",
+      "Comparison Table",
+      "Final Recommendation",
+      "Limitation of the Recommended Approach"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.2,
+      "description": "Full credit requires all six required sections, coverage of all three approaches, comparison across all six required dimensions, one final recommendation, and one limitation of the recommended approach. Reduce the score proportionally for each missing section, approach, comparison dimension, recommendation, or limitation."
+    },
+    {
+      "criterion": "technical_accuracy",
+      "weight": 0.25,
+      "description": "Evaluate the correctness of the three approach descriptions. Full credit requires: (1) full-context prompting is correctly described as placing document content directly in the context and being constrained by the context window; (2) retrieval-augmented generation is correctly described as chunking, indexing, retrieving, and providing selected relevant content; and (3) hierarchical summarization is correctly described as progressive compression from lower-level sections to higher-level summaries. Each approach contributes one third of this criterion."
+    },
+    {
+      "criterion": "comparison_quality",
+      "weight": 0.2,
+      "description": "Full credit requires a comparison table containing all three approaches and all seven specified columns: Approach, Information Coverage, Grounding, Context Usage, Cost, Implementation Complexity, and Main Failure Risk. The table and prose must clearly explain meaningful tradeoffs rather than listing generic advantages. Reduce the score proportionally for missing rows, missing columns, vague entries, or contradictions between the table and the prose."
+    },
+    {
+      "criterion": "failure_risk_analysis",
+      "weight": 0.1,
+      "description": "Full credit requires at least one realistic failure risk for each approach: context omission or excessive cost for full-context prompting, retrieval or chunking failure for retrieval-augmented generation, and detail loss through repeated compression for hierarchical summarization. Missing or technically incorrect failure risks should reduce the score proportionally."
+    },
+    {
+      "criterion": "recommendation_quality",
+      "weight": 0.15,
+      "description": "Full credit requires one clear recommendation tailored to detailed question answering over a large collection of technical manuals, supported by at least three scenario-relevant reasons drawn from the required comparison dimensions. The answer must also identify one realistic situation in which the recommended approach may perform poorly. A recommendation without scenario-specific justification receives no more than half credit."
+    },
+    {
+      "criterion": "clarity_and_format",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and a total length of 500-700 words. Award partial credit for minor organization or length deviations; major format omissions or a response below 450 words or above 800 words should receive little or no credit."
+    },
+    {
+      "criterion": "evidence_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires qualitative reasoning only, with no fabricated benchmark results, unsupported numerical accuracy claims, latency measurements, token savings, or cost figures. Any invented empirical number should substantially reduce this score. Brief hypothetical examples are acceptable only when clearly labeled as hypothetical."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

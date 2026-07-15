@@ -1,0 +1,58 @@
+{
+  "task_id": "SP-05",
+  "title": "In-House Development vs. Outsourcing for a Three-Month Mobile-App MVP",
+  "category": "Strategic Planning",
+  "difficulty": "Medium",
+  "prompt": "A startup must launch a functional mobile-app MVP for both iOS and Android within three months.\n\nCurrent situation and constraints:\n- The startup currently has no mobile developer.\n- One technical co-founder can spend up to five hours per week reviewing architecture, code quality, and project progress.\n- The company may either hire one full-time mobile developer or outsource the project to an external development agency.\n- No additional full-time engineering hires are allowed during the three-month development period.\n- The MVP must support user registration and login, a basic user profile, one core product workflow, simple notifications, and basic analytics.\n- The app will require bug fixes, operating-system updates, and continued feature development for at least one year after launch.\n- The startup values meeting the three-month deadline, but it also wants reasonable quality control, maintainable code, and retention of product knowledge.\n\nCompare the following two primary strategies:\n1. Hire one full-time mobile developer and build the MVP internally.\n2. Outsource the MVP to an external mobile-development agency.\n\nAnalyze both strategies in terms of:\n- Speed to begin development\n- Probability of meeting the three-month deadline\n- Access to design, development, testing, and release expertise\n- Management and communication overhead\n- Quality control and accountability\n- Product knowledge retention\n- Intellectual-property and code-ownership considerations\n- Post-launch maintenance and continuity\n- Main execution risks\n\nUse qualitative strategic reasoning only. Do not provide precise salary figures, agency rates, or total project-cost estimates.\n\nThen recommend one primary strategy for the startup. A phased transition is allowed—for example, outsourcing the MVP while preparing for later internal ownership—but the response must still clearly identify either internal hiring or outsourcing as the main strategy for the three-month delivery period.\n\nThe recommendation must include a practical transition and knowledge-transfer plan for the first three months after launch. It must also identify at least three safeguards for the chosen strategy, such as milestone reviews, code-repository ownership, documentation requirements, testing standards, acceptance criteria, handover sessions, or backup staffing.\n\nInclude a comparison table with the columns: Dimension, In-House Developer, External Agency, Strategic Impact.\n\nThe response should be approximately 700-900 words. No external citations or tools are allowed. Do not invent completed project results or claim that either strategy guarantees delivery.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Startup Context and Strategic Priorities",
+      "In-House Development Strategy",
+      "Outsourcing Strategy",
+      "Comparison Table",
+      "Recommended Primary Strategy",
+      "Three-Month Post-Launch Transition Plan",
+      "Key Safeguards and Risks"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all seven required sections; analysis of both strategies; coverage of all nine comparison dimensions; a complete comparison table using all four specified columns; one clearly identified primary strategy; a three-month post-launch transition plan; at least three concrete safeguards; and discussion of important risks. Reduce proportionally for each missing element."
+    },
+    {
+      "criterion": "in_house_strategy_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a realistic assessment of hiring one internal mobile developer under the stated constraints. The answer should recognize the benefits of direct control, stronger product-context retention, and easier long-term continuity, while also addressing recruiting delay, single-person dependency, limited cross-functional coverage, and the risk that one developer must handle design, implementation, testing, and release work. Claims that one developer can automatically provide all required expertise or guarantee the deadline should reduce the score."
+    },
+    {
+      "criterion": "outsourcing_strategy_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a realistic assessment of outsourcing to an agency. The answer should recognize faster team availability and access to multiple roles, while also addressing vendor-selection time, communication overhead, scope control, quality variability, intellectual-property and repository ownership, knowledge-transfer risk, and post-launch dependency. Claims that an agency automatically guarantees quality or speed should reduce the score."
+    },
+    {
+      "criterion": "tradeoff_comparison_quality",
+      "weight": 0.2,
+      "description": "Full credit requires direct, scenario-specific comparison across speed to start, deadline feasibility, access to expertise, management overhead, quality control, knowledge retention, intellectual property, maintenance continuity, and execution risk. The table and prose must explain the practical consequences of each tradeoff for this startup rather than listing generic advantages and disadvantages."
+    },
+    {
+      "criterion": "timeline_and_feasibility_reasoning",
+      "weight": 0.15,
+      "description": "Full credit requires reasoning that is consistent with the three-month delivery window, the absence of an existing mobile developer, the co-founder's five-hour weekly review limit, and the prohibition on additional full-time engineering hires. The response should account for recruiting or vendor-onboarding time, testing, app-store submission, and the limited scope of the MVP. A plan that ignores these constraints or assumes unlimited internal support should receive no more than half credit."
+    },
+    {
+      "criterion": "recommendation_and_transition_planning",
+      "weight": 0.15,
+      "description": "Full credit requires one clear primary strategy supported by at least three scenario-relevant reasons and one acknowledged limitation. The three-month post-launch plan must include concrete ownership-transfer or continuity actions, such as repository access, architecture and deployment documentation, backlog transfer, handover sessions, maintenance ownership, and issue-escalation procedures. A phased recommendation is acceptable only when the main delivery strategy remains explicit."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 700-900 words. Deduct for precise market salary or agency-rate figures, unsupported guarantees, invented project results, contradictions with the stated constraints, or vague claims that are not tied to the scenario."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

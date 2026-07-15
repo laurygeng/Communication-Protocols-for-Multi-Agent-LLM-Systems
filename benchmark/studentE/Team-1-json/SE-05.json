@@ -1,0 +1,57 @@
+{
+  "task_id": "SE-05",
+  "title": "Synchronous REST vs. Asynchronous Messaging for Order Fulfillment",
+  "category": "Software Engineering",
+  "difficulty": "Medium",
+  "prompt": "A small e-commerce system must process a newly placed order by coordinating three downstream actions:\n1. Reserve or deduct inventory.\n2. Send an order-confirmation SMS message.\n3. Request creation of a shipping label.\n\nCompare two backend integration approaches for coordinating these actions:\n\n1. Synchronous REST orchestration: the order service directly calls the inventory, SMS, and shipping services through synchronous REST APIs and waits for their responses.\n2. Asynchronous messaging: the order service publishes an order-created event to a message broker, and each downstream service subscribes to or consumes the event independently, using separate subscriptions or consumer groups where applicable.\n\nAnalyze both approaches in terms of:\n- Request flow and coupling\n- User-facing latency\n- Failure isolation and cascading failures\n- Retry behavior\n- Duplicate delivery and idempotency\n- Data consistency and completion visibility\n- Implementation and operational complexity\n\nExplain the likely behavior of each design when one downstream service is slow or unavailable. Distinguish synchronous confirmation and potentially stronger immediate coordination from eventual consistency and delayed completion. Do not claim that synchronous REST automatically guarantees strong consistency across services.\n\nThen recommend a suitable architecture for this order-processing scenario. A hybrid design is allowed and may be appropriate. For example, inventory reservation may use a correctness-focused synchronous or transactional mechanism while SMS and shipping-label creation are handled asynchronously. A fully asynchronous recommendation may also be justified if it adequately addresses overselling, message ordering, idempotency, retries, and failure recovery.\n\nInclude a comparison table with the columns: Dimension, Synchronous REST, Asynchronous Messaging, Practical Impact.\n\nThe response should be approximately 600-800 words. No external citations are required. Use qualitative reasoning and do not invent benchmark results, latency measurements, throughput figures, or reliability percentages.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Synchronous REST Approach",
+      "Asynchronous Messaging Approach",
+      "Comparison Table",
+      "Failure and Consistency Analysis",
+      "Recommended Architecture",
+      "Key Implementation Safeguards"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all six required sections; analysis of both integration approaches; coverage of all seven comparison dimensions; discussion of slow or unavailable downstream services; one clear recommendation; and a complete comparison table using all four specified columns. Reduce proportionally for missing sections, dimensions, failure analysis, recommendation, or table content."
+    },
+    {
+      "criterion": "synchronous_rest_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a correct explanation that synchronous REST uses direct request-response calls and creates runtime coupling between the order service and downstream services. The answer should recognize that waiting for multiple services can increase user-facing latency and that a slow or failed dependency can cause partial failure or cascading failure. It must not claim that synchronous REST automatically provides distributed strong consistency or atomic completion across all services."
+    },
+    {
+      "criterion": "asynchronous_messaging_accuracy",
+      "weight": 0.15,
+      "description": "Full credit requires a correct explanation that the order service publishes an event and downstream services consume it independently through subscriptions or consumer groups where applicable. The answer should explain reduced runtime coupling, failure isolation, delayed processing, eventual consistency, and the need for broker, consumer, monitoring, and retry infrastructure. It must not assume that asynchronous delivery is automatically exactly once."
+    },
+    {
+      "criterion": "comparison_quality",
+      "weight": 0.2,
+      "description": "Full credit requires direct and technically meaningful comparison across request flow and coupling, user-facing latency, failure isolation, retries, duplicate delivery and idempotency, consistency and completion visibility, and implementation or operational complexity. The comparison table and prose should explain practical consequences for the order scenario rather than listing generic advantages and disadvantages."
+    },
+    {
+      "criterion": "reliability_and_consistency_reasoning",
+      "weight": 0.15,
+      "description": "Full credit requires concrete reasoning about cascading failures, partial completion, retry policies, duplicate messages, idempotent consumers or operations, eventual consistency, message ordering where relevant, and failed-message recovery such as dead-letter handling or equivalent mechanisms. The response should explain how order status or step status can make incomplete processing visible. Merely naming these concepts without connecting them to the scenario receives partial credit."
+    },
+    {
+      "criterion": "recommendation_quality",
+      "weight": 0.15,
+      "description": "Full credit requires one clear architecture recommendation tailored to inventory, SMS, and shipping-label creation, supported by at least three scenario-specific reasons. A hybrid recommendation should clearly state which actions are synchronous or transactional and which are asynchronous. A fully asynchronous recommendation can receive full credit only if it credibly addresses overselling, ordering, idempotency, retries, and consistency. The answer must acknowledge at least one tradeoff or limitation of the recommended design."
+    },
+    {
+      "criterion": "clarity_and_evidence_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, consistent terminology, readable Markdown, the required comparison table, and approximately 600-800 words. Deduct for contradictions, unsupported guarantees, invented performance numbers, claims of exactly-once delivery without qualification, or assertions that the proposed architecture has already been implemented or tested."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

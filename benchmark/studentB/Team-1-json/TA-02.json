@@ -1,0 +1,51 @@
+{
+  "task_id": "TA-02",
+  "title": "BM25 vs. Dense Embedding Search for Internal FAQs",
+  "category": "Technical Analysis",
+  "difficulty": "Easy",
+  "prompt": "Explain the difference between BM25 keyword search and dense embedding semantic search for an internal FAQ search system.\n\nCompare them in terms of matching behavior, synonym handling, exact phrase or identifier lookup, data and infrastructure needs, latency and operational complexity, and common failure modes. Then recommend BM25, dense embeddings, or a hybrid approach for a small company with 500 FAQ documents.\n\nUse these sections: Short Definition of BM25; Short Definition of Dense Embedding Search; Comparison Table; Recommendation; Two Likely Failure Risks and Mitigations.\n\nBM25 should be described as lexical matching using term frequency, inverse document frequency, document-length normalization, or equivalent relevance scoring. Dense search should be described as vector-based semantic retrieval using learned representations and similarity search. Address exact codes, rare terms, phrases, synonyms, paraphrases, stale embeddings, semantic false positives, threshold tuning, indexes, embedding generation, vector storage, updates, and small-corpus simplicity.\n\nDo not use external sources, cite vendors, invent measured performance numbers, claim dense search is always better, or claim BM25 understands synonyms semantically by itself.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "BM25 Keyword Search",
+      "Dense Embedding Semantic Search",
+      "Comparison Table",
+      "Recommendation",
+      "Two Failure Risks and Mitigations"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all five sections, a comparison table covering all required dimensions, a recommendation for the 500-document FAQ scenario, and at least two realistic failure risks with mitigations."
+    },
+    {
+      "criterion": "technical_accuracy",
+      "weight": 0.25,
+      "description": "Full credit requires correct descriptions of BM25 as lexical relevance scoring and dense search as semantic vector-similarity retrieval. Confusing or reversing the methods should receive little or no credit."
+    },
+    {
+      "criterion": "comparison_dimension_quality",
+      "weight": 0.2,
+      "description": "Full credit requires accurate comparison of matching behavior, synonyms, exact phrases and identifiers, data and infrastructure needs, latency and operational complexity, and common failure modes."
+    },
+    {
+      "criterion": "scenario_specific_recommendation",
+      "weight": 0.15,
+      "description": "Full credit requires a nuanced BM25-first or lightweight hybrid recommendation tied to a 500-document corpus, exact lookup needs, semantic mismatch, simplicity, and added complexity. Dense-only requires strong justification."
+    },
+    {
+      "criterion": "failure_risks_and_mitigations",
+      "weight": 0.1,
+      "description": "Full credit requires at least two concrete risks and practical mitigations, such as vocabulary mismatch, keyword noise, semantic false positives, poor exact lookup, stale embeddings, filters, thresholds, or hybrid retrieval."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.15,
+      "description": "Full credit requires clear plain-language explanation and no external citations, vendor claims, fabricated accuracy/latency/cost numbers, universal-superiority claims, or statements that BM25 semantically understands synonyms."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

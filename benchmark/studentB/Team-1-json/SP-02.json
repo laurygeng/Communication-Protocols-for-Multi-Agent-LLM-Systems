@@ -1,0 +1,61 @@
+{
+  "task_id": "SP-02",
+  "title": "12-Week AI Course-QA Assistant Pilot Launch Plan",
+  "category": "Strategic Planning",
+  "difficulty": "Medium",
+  "prompt": "Create a 12-week strategic launch plan for a pilot AI course-QA assistant at a university department.\n\nThe pilot supports two undergraduate courses with about 300 students. The team consists of one part-time faculty sponsor, two student developers, and one teaching assistant, with a total pilot budget of $5,000. The assistant may answer only from instructor-approved course materials and must include safeguards for hallucination, privacy, academic integrity, and escalation to human staff.\n\nUse these sections: Executive Summary; Goals and Non-Goals; Stakeholder Map; 12-Week Roadmap Table with phases, tasks, owners, and deliverables; Resource and Budget Allocation; Risk Register with Mitigations; Success Metrics and Data Collection Plan; Governance and Escalation Process; Go/No-Go Decision Criteria for Expansion; Final Recommendation.\n\nThe roadmap must cover all 12 weeks and include sequencing, owners, deliverables, milestones, and decision gates. The budget must total exactly $5,000. Include content-ingestion and approval boundaries, grounding to approved materials, refusal behavior, confidence or escalation rules, privacy-conscious logging and retention assumptions, academic-integrity safeguards, measurable metrics, governance, and criteria distinguishing expansion, revision/extension, and stopping.\n\nDo not invent university policies, institutional approvals, laws, vendor claims, completed pilot results, or exact performance data. Clearly label assumptions.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Executive Summary",
+      "Goals and Non-Goals",
+      "Stakeholder Map",
+      "12-Week Roadmap",
+      "Resource and Budget Allocation",
+      "Risk Register with Mitigations",
+      "Success Metrics and Data Collection Plan",
+      "Governance and Escalation Process",
+      "Go/No-Go Decision Criteria",
+      "Final Recommendation"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all ten sections, stakeholder map, 12-week roadmap, itemized budget, risk register, metrics and collection plan, governance and escalation process, decision criteria, and final recommendation."
+    },
+    {
+      "criterion": "roadmap_and_ownership_quality",
+      "weight": 0.15,
+      "description": "Full credit requires all 12 weeks with coherent phases, sequencing, tasks, owners, deliverables, milestones, and decision gates appropriate to one part-time faculty sponsor, two student developers, and one TA."
+    },
+    {
+      "criterion": "budget_and_resource_feasibility",
+      "weight": 0.15,
+      "description": "Full credit requires a realistic allocation totaling exactly $5,000 and staffing assignments that fit the small team. Missing or incorrect budget accounting should substantially reduce the score."
+    },
+    {
+      "criterion": "approved_material_scope_and_safeguards",
+      "weight": 0.15,
+      "description": "Full credit requires restricting answers to instructor-approved materials and concrete safeguards for hallucination, privacy, academic integrity, refusal, grounding or citations, confidence, and human escalation. Allowing answers outside approved materials should receive little or no credit."
+    },
+    {
+      "criterion": "risk_governance_and_escalation",
+      "weight": 0.15,
+      "description": "Full credit requires risks and mitigations for hallucination, privacy, academic integrity, adoption, support burden, and scope creep, plus content-update approval, monitoring, incident review, escalation ownership, and handling of uncertainty, sensitive issues, disputes, and integrity cases."
+    },
+    {
+      "criterion": "metrics_and_decision_gates",
+      "weight": 0.15,
+      "description": "Full credit requires measurable metrics and collection methods for groundedness, citation accuracy, unresolved or escalated questions, student satisfaction, TA workload, adoption, latency, and safety incidents, plus thresholds distinguishing expansion, revision/extension, and stopping."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.1,
+      "description": "Full credit requires a practical, prioritized, internally consistent plan for two courses and about 300 students. Deduct for invented university policies, legal guarantees, approvals, pilot outcomes, unrealistic staffing, budget contradictions, or automatic expansion unsupported by decision gates."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

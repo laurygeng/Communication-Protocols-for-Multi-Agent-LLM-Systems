@@ -1,0 +1,58 @@
+{
+  "task_id": "LR-02",
+  "title": "RAG Methods for Reducing Hallucinations in Domain-Specific QA",
+  "category": "Literature Review",
+  "difficulty": "Medium",
+  "prompt": "Write a concise literature review on retrieval-augmented generation (RAG) for reducing hallucinations in domain-specific question-answering systems.\n\nDefine RAG as retrieval of external or domain evidence followed by generation conditioned on that evidence. Explain why hallucination reduction matters for factuality, trust, and evidence traceability.\n\nCompare at least three methodological families, such as retrieval/indexing improvements, reranking or context selection, citation-grounded generation, answer verification, or evaluation/guardrail methods. Analyze factuality, evidence grounding, latency, and implementation complexity.\n\nUse at least four credible public scholarly sources published in or after 2020. Clearly distinguish established findings from synthesis, assumptions, and open questions. End with at least three realistic research gaps or future directions useful to a team building a RAG-based QA assistant.\n\nUse these sections: Title; Executive Summary; Source Table with columns Source, Year, Method/Focus, Key Contribution, Limitation; Literature Review by Method Family; Tradeoff Analysis; Research Gaps/Future Directions; Conclusion.\n\nDo not fabricate citations, paper details, benchmark results, or claims that RAG eliminates hallucinations. Label synthesis clearly.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Title",
+      "Executive Summary",
+      "Source Table",
+      "Literature Review by Method Family",
+      "Tradeoff Analysis",
+      "Research Gaps and Future Directions",
+      "Conclusion"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all seven sections, the source table, at least three method families, all four tradeoff dimensions, and at least three research gaps or future directions."
+    },
+    {
+      "criterion": "source_quality_and_recency",
+      "weight": 0.2,
+      "description": "Full credit requires at least four identifiable public scholarly sources from 2020 or later, with accurate years and relevant method focus. Fewer than four qualifying sources receives no more than half credit here."
+    },
+    {
+      "criterion": "technical_accuracy",
+      "weight": 0.2,
+      "description": "Full credit requires accurate descriptions of RAG, retrieval/indexing, reranking/context selection, citation grounding, verification, evaluation, and hallucination risks, without claiming perfect elimination."
+    },
+    {
+      "criterion": "method_family_comparison",
+      "weight": 0.15,
+      "description": "Full credit requires synthesis and direct comparison of at least three methodological families rather than paper-by-paper listing. Each family should include purpose, contribution, and limitations."
+    },
+    {
+      "criterion": "tradeoff_analysis",
+      "weight": 0.1,
+      "description": "Full credit requires explicit analysis of factuality, evidence grounding, latency, and implementation complexity, including retrieval recall, context precision, multi-stage latency, indexing, maintenance, and orchestration burdens."
+    },
+    {
+      "criterion": "research_gap_quality",
+      "weight": 0.1,
+      "description": "Full credit requires at least three realistic, specific future directions clearly separated from established findings and connected to limitations in the reviewed literature."
+    },
+    {
+      "criterion": "evidence_integrity",
+      "weight": 0.1,
+      "description": "Full credit requires source-supported empirical, benchmark, capability, and limitation claims and matching citations/references. Fabricated citations, unrelated sources, or invented benchmark numbers receive little or no credit."
+    }
+  ],
+  "tool_requirement": "Required",
+  "input_files": []
+}

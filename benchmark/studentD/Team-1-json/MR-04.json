@@ -1,0 +1,50 @@
+{
+  "task_id": "MR-04",
+  "title": "Slack vs. Microsoft Teams for a Small Remote Company",
+  "category": "Market Research",
+  "difficulty": "Easy",
+  "prompt": "Compare Slack and Microsoft Teams as communication and collaboration products for a small remote company. Use current information from official Slack and Microsoft product sources.\n\nCompare the two products in terms of primary target users, core communication features, collaboration and integration features, one main strength, and one main limitation. Then recommend one product for a small remote company that needs daily messaging, file sharing, video meetings, and basic integrations with workplace tools. Support the recommendation with evidence from the reviewed sources.\n\nUse the following structure: Brief Market Overview; Product Comparison Table; Recommendation; Sources. The comparison table must include the columns: Product, Target Users, Core Communication Features, Collaboration and Integrations, Main Strength, Main Limitation.\n\nThe response should be approximately 400-600 words. Use at least two current official sources, including at least one Slack source and one Microsoft source. Claims about features, integrations, availability, or plan limitations must be supported by the cited sources. Exact pricing is not required.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Brief Market Overview",
+      "Product Comparison Table",
+      "Recommendation",
+      "Sources"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.2,
+      "description": "Full credit requires all four required sections, both products, all five comparison areas, a clear recommendation, and a source list. Reduce proportionally for each missing section, product, comparison area, recommendation, or source list."
+    },
+    {
+      "criterion": "product_accuracy",
+      "weight": 0.25,
+      "description": "Evaluate whether Slack and Microsoft Teams are correctly described as workplace communication and collaboration products and whether claims about messaging, file sharing, meetings, integrations, target users, strengths, and limitations are accurate. Give approximately equal weight to both products."
+    },
+    {
+      "criterion": "official_source_quality",
+      "weight": 0.2,
+      "description": "Full credit requires at least two current official sources, including at least one official Slack source and one official Microsoft source, with clear correspondence between factual claims, in-text citations, and source-list entries. Using only unofficial sources receives no more than half credit."
+    },
+    {
+      "criterion": "comparison_quality",
+      "weight": 0.15,
+      "description": "Full credit requires direct comparison of both products across all five required dimensions and a complete table containing all six specified columns. Describing the products separately without contrasting them receives no more than half credit."
+    },
+    {
+      "criterion": "recommendation_quality",
+      "weight": 0.15,
+      "description": "Full credit requires one clear recommendation tailored to a small remote company and supported by evidence related to daily messaging, file sharing, video meetings, and workplace-tool integrations. A recommendation based only on personal preference receives little or no credit."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization, readable Markdown, the required table, and 400-600 words. Deduct for fabricated features, unsupported plan claims, outdated information presented as current, invented pricing, or citations that do not support the associated claims."
+    }
+  ],
+  "tool_requirement": "Required",
+  "input_files": []
+}

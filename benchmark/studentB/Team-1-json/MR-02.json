@@ -1,0 +1,57 @@
+{
+  "task_id": "MR-02",
+  "title": "AI Meeting Assistant Market Comparison for a University Research Lab",
+  "category": "Market Research",
+  "difficulty": "Medium",
+  "prompt": "Conduct a current market comparison of AI meeting-assistant tools for a small university research lab.\n\nThe lab has 12 members, uses Zoom and Google Meet, and wants searchable transcripts, action-item extraction, speaker identification, and easy export of notes. The lab is budget-sensitive and must consider privacy, consent, recording/transcription notice, and data-retention risks.\n\nCompare at least four currently available options, including at least one platform-integrated option and at least one standalone option. Use current public sources, preferring official product, pricing, documentation, support, security, privacy, and retention pages. Verify Zoom and Google Meet support separately.\n\nUse these sections: Brief Market Context; Comparison Matrix with columns Product, Standalone or Integrated, Supported Meeting Platforms, Key Features, Public Pricing/Plan Notes, Privacy or Data-Retention Notes, Best Fit, Limitations; Market Trends or Differentiators; Recommendation; Risks, Assumptions, and Verification Notes; Source List.\n\nCite factual product, pricing, platform-support, privacy, consent, and retention claims. If a detail is unclear, label it unknown or requiring institutional/vendor confirmation rather than guessing.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Brief Market Context",
+      "Comparison Matrix",
+      "Market Trends or Differentiators",
+      "Recommendation for the 12-Member Lab",
+      "Risks, Assumptions, and Verification Notes",
+      "Source List"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all six sections, at least four products, at least one integrated and one standalone option, all required matrix columns, a recommendation, verification notes, and a source list."
+    },
+    {
+      "criterion": "current_product_accuracy",
+      "weight": 0.2,
+      "description": "Full credit requires accurate current claims about platform support, transcripts, action items, speaker identification, exports, pricing or plan availability, and limitations. Unknown details must be labeled rather than inferred."
+    },
+    {
+      "criterion": "source_and_citation_quality",
+      "weight": 0.2,
+      "description": "Full credit requires current public sources, with official pages preferred for features, pricing, platform support, privacy, and retention. Factual claims must be cited or marked unknown/unverified."
+    },
+    {
+      "criterion": "comparison_matrix_quality",
+      "weight": 0.15,
+      "description": "Full credit requires at least four complete product rows and all eight required columns, with direct decision-relevant comparison rather than isolated descriptions."
+    },
+    {
+      "criterion": "privacy_consent_and_retention_analysis",
+      "weight": 0.1,
+      "description": "Full credit requires meaningful treatment of privacy, recording/transcription consent, notices, access, and data-retention risks for a university research lab, without unsupported compliance claims."
+    },
+    {
+      "criterion": "recommendation_quality",
+      "weight": 0.15,
+      "description": "Full credit requires a justified recommendation for 12 budget-sensitive members using Zoom and Google Meet, balancing features, cost, ease of use, integration, administration, privacy, and verification needs."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.05,
+      "description": "Full credit requires clear organization and explicit distinction between verified facts, synthesis, assumptions, and unknowns. Deduct heavily for fabricated prices, plan names, integrations, privacy claims, or outdated information presented as current."
+    }
+  ],
+  "tool_requirement": "Required",
+  "input_files": []
+}

@@ -1,0 +1,61 @@
+{
+  "task_id": "EC-02",
+  "title": "Introductory Dynamic Programming Lesson Using Coin Change",
+  "category": "Educational Content",
+  "difficulty": "Medium",
+  "prompt": "Create a 50-minute introductory lesson plan for teaching dynamic programming using the coin change problem to undergraduate computer science students. Students know arrays, loops, and recursion, but many confuse greedy algorithms with dynamic programming.\n\nState the coin-change variant clearly. Ensure the subproblem definition, recurrence, base cases, bottom-up table, activity, worked example, and quiz all match that variant. Prefer the minimum-coin variant because the lesson must directly address greedy-vs-DP confusion.\n\nExplain when dynamic programming is appropriate using optimal substructure and overlapping subproblems. Show bottom-up table construction step by step. Include a concrete greedy-failure example, such as coins [1,3,4] and amount 6, where greedy gives 4+1+1 but the optimum is 3+3.\n\nUse these sections: Lesson Title and Target Audience; Learning Objectives; Prerequisites; 50-Minute Timeline Table; Concept Explanation with a Small Worked Example; Board or Slide Outline; In-Class Activity; Common Misconceptions and Instructor Responses; Exit Quiz with Answers; Optional Homework Prompt.\n\nThe timeline must total exactly 50 minutes and include active learning. Do not use external sources. Do not mix minimum-coin and number-of-ways recurrences, claim greedy always fails, or provide inconsistent recurrence, table, activity, or quiz values.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Lesson Title and Target Audience",
+      "Learning Objectives",
+      "Prerequisites",
+      "50-Minute Timeline Table",
+      "Concept Explanation with a Small Worked Example",
+      "Board or Slide Outline",
+      "In-Class Activity",
+      "Common Misconceptions and Instructor Responses",
+      "Exit Quiz with Answers",
+      "Optional Homework Prompt"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.15,
+      "description": "Full credit requires all ten sections, an explicit variant, a worked example, board/slide outline, active-learning activity, misconceptions with responses, exit quiz with answers, and homework prompt. Reduce proportionally for missing elements."
+    },
+    {
+      "criterion": "dynamic_programming_concept_accuracy",
+      "weight": 0.2,
+      "description": "Full credit requires accurate explanations of optimal substructure, overlapping subproblems, subproblem definition, base cases, and bottom-up construction. The lesson must not imply DP is always necessary."
+    },
+    {
+      "criterion": "recurrence_table_and_example_accuracy",
+      "weight": 0.2,
+      "description": "Full credit requires a recurrence consistent with the chosen variant, correct base cases, step-by-step table construction, and internally consistent values. A materially wrong or variant-inconsistent recurrence should receive little or no credit here."
+    },
+    {
+      "criterion": "greedy_vs_dynamic_programming_analysis",
+      "weight": 0.15,
+      "description": "Full credit requires a clear distinction between greedy and DP and a concrete failure example. For coins [1,3,4] and amount 6, recognize greedy uses 3 coins while the optimum uses 2, or provide an equally valid example."
+    },
+    {
+      "criterion": "lesson_timing_and_active_learning",
+      "weight": 0.1,
+      "description": "Full credit requires a realistic timeline totaling exactly 50 minutes and meaningful student activity. A timeline not totaling 50 minutes receives no more than half credit here."
+    },
+    {
+      "criterion": "assessment_and_alignment",
+      "weight": 0.1,
+      "description": "Full credit requires observable objectives, an exit quiz with correct answers aligned to those objectives, and a homework prompt reinforcing DP formulation or implementation."
+    },
+    {
+      "criterion": "clarity_and_integrity",
+      "weight": 0.1,
+      "description": "Full credit requires clear pacing, introductory-level language, and consistency across recurrence, table, activity, misconceptions, and quiz. Deduct for external citations, unsupported claims, or conflated variants."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}

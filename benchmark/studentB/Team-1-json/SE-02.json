@@ -1,0 +1,66 @@
+{
+  "task_id": "SE-02",
+  "title": "Multi-Tenant AI Support-Ticket Triage Architecture",
+  "category": "Software Engineering",
+  "difficulty": "Hard",
+  "prompt": "Design a high-level architecture for a multi-tenant AI support-ticket triage system.\n\nA SaaS company receives about 10,000 support tickets per day across 20 enterprise tenants. The system must classify issue type and urgency, redact personal data before any third-party model call, route high-risk or low-confidence tickets to human review, preserve audit logs, and allow tenant-specific routing rules. The target p95 classification latency is 2 seconds per ticket during normal load. If the AI component is unavailable or uncertain, the system must fail safely and must not drop tickets.\n\nBalance scalability, privacy, reliability, observability, implementation complexity, and cost. Include ingestion, tenant isolation, queueing/buffering, PII detection/redaction, classification, rules/routing, human review, audit logging, configuration management, monitoring, and storage.\n\nUse these sections: Assumptions and Non-Goals; Textual Component Diagram; End-to-End Data Flow; Key Services and Responsibilities Table; Privacy and Compliance Safeguards; Reliability and Failure Handling; Latency and Throughput Reasoning; Testing and Rollout Plan; Major Risks and Mitigations; Final Recommendation.\n\nProvide simple throughput reasoning for 10,000 tickets/day and peak bursts, plus a latency budget or timeout policy for the 2-second p95 target. Include retries, backpressure, dead-letter handling or an equivalent, safe fallbacks, observability, tenant-rule validation/versioning/rollback, testing, phased rollout, and rollback criteria.\n\nDo not write production code. Do not cite vendors, laws, certifications, exact costs, or model-performance numbers not provided in the scenario. Clearly label assumptions.",
+  "required_output_format": {
+    "type": "markdown",
+    "sections": [
+      "Assumptions and Non-Goals",
+      "Component Diagram Described in Text",
+      "End-to-End Data Flow",
+      "Key Services and Responsibilities Table",
+      "Privacy and Compliance Safeguards",
+      "Reliability and Failure-Handling Plan",
+      "Latency and Throughput Reasoning",
+      "Testing and Rollout Plan",
+      "Major Risks and Mitigations",
+      "Final Recommendation"
+    ]
+  },
+  "evaluation_rubric": [
+    {
+      "criterion": "requirement_coverage",
+      "weight": 0.1,
+      "description": "Full credit requires all ten sections and coherent coverage of ingestion, tenant isolation, buffering, redaction, classification, routing, human review, audit logging, configuration, observability, and storage."
+    },
+    {
+      "criterion": "architecture_coherence",
+      "weight": 0.15,
+      "description": "Full credit requires a plausible component architecture and end-to-end flow from intake through redaction, classification, routing, review, logging, and final handoff, with clear service responsibilities."
+    },
+    {
+      "criterion": "tenant_isolation_and_privacy",
+      "weight": 0.15,
+      "description": "Full credit requires tenant separation across data, configuration, logs, metrics, and access controls, plus mandatory PII redaction before third-party calls and handling of redaction failure. Sending unredacted PII externally receives no credit here."
+    },
+    {
+      "criterion": "reliability_and_fail_safe_behavior",
+      "weight": 0.15,
+      "description": "Full credit requires safe handling of model unavailability, timeout, low confidence, redaction failure, and rules-engine failure; retries, timeouts, backpressure, and dead-letter or equivalent handling; and no silent ticket loss."
+    },
+    {
+      "criterion": "throughput_and_latency_reasoning",
+      "weight": 0.15,
+      "description": "Full credit requires recognizing that 10,000 tickets/day is about 0.116 tickets/second on average, designing for bursts, and providing a plausible latency budget, timeout policy, and fast fallback path for the 2-second p95 target."
+    },
+    {
+      "criterion": "auditability_observability_and_configuration",
+      "weight": 0.1,
+      "description": "Full credit requires privacy-conscious audit logs, metrics, traces/logs, alerts, quality monitoring, tenant-specific rule validation, versioning, approval or rollback, and sufficient reviewability."
+    },
+    {
+      "criterion": "testing_and_rollout_quality",
+      "weight": 0.1,
+      "description": "Full credit requires unit/integration tests, redaction tests, rules tests, tenant-isolation tests, load tests, failure injection, phased rollout with limited tenants or shadow mode, human validation, and rollback criteria."
+    },
+    {
+      "criterion": "tradeoff_reasoning_and_integrity",
+      "weight": 0.1,
+      "description": "Full credit requires explicit tradeoffs among scalability, privacy, reliability, observability, implementation complexity, and cost, with an actionable recommendation. Deduct for unsupported vendor, law, certification, exact-cost, model-accuracy, or guaranteed-latency claims."
+    }
+  ],
+  "tool_requirement": "Prohibited",
+  "input_files": []
+}
