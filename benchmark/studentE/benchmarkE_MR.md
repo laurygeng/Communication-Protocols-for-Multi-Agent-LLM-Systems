@@ -3,6 +3,7 @@
 ## Metadata
 
 - Task ID: MR-05
+- Title: Notion vs. Asana for a Five-Person Startup Team
 - Category: Market Research
 - Difficulty: Medium
 - Author: Student E
@@ -10,51 +11,73 @@
 
 ## Prompt
 
-Compare the current pricing plans and core features of two project-management SaaS tools: Notion and Asana. Then recommend which one a 5-person startup team should adopt, considering cost, core collaboration needs, and ease of onboarding. You must look up current pricing information rather than relying on potentially outdated knowledge, since SaaS pricing changes frequently.
+Compare the current pricing plans and core collaboration features of two project-management SaaS tools: Notion and Asana. Use current information retrieved from official Notion and Asana sources rather than relying on memorized knowledge, because SaaS pricing and plan features may change.
+
+Evaluate both products for a five-person startup team that needs task management, shared documentation or knowledge storage, team collaboration, basic integrations, and a reasonably simple onboarding process.
+
+For each product, summarize the pricing tiers most relevant to a small team and identify the plan that would best fit this scenario. Then calculate the estimated monthly cost for five users under the selected plan for each product. Clearly state whether the calculation uses month-to-month billing or annual billing converted to a monthly amount. Do not combine prices from different billing options in the same calculation.
+
+Compare the selected plans in terms of task and project management, documentation or wiki capabilities, collaboration features, integrations, plan limitations, total estimated cost, and onboarding considerations. Any statement about onboarding must be tied to specific, checkable product characteristics, such as workspace setup, interface structure, templates, required configuration, or the number of major concepts a new user must learn.
+
+Recommend one product and one specific plan for the five-person startup team. The recommendation must be based on the team's stated needs, the calculated cost, and the feature tradeoffs. Do not recommend a product solely because it has the cheapest or free plan.
+
+Use at least two current official sources, including at least one official Notion source and one official Asana source. Include in-text citations and a source list with the retrieval date for each source.
+
+The response should be approximately 600-900 words.
 
 ## Required Output Format
 
-Use the following format:
+- Type: markdown
+- Required sections:
+  1. Notion Pricing and Core Features
+  2. Asana Pricing and Core Features
+  3. Comparison Table
+  4. Five-Person Cost Calculations
+  5. Recommendation
+  6. Sources
 
-1. Short overview of Notion's current pricing tiers and core features
-2. Short overview of Asana's current pricing tiers and core features
-3. Comparison table
-4. Recommendation paragraph, including the chosen plan for each tool and an estimated monthly cost for a 5-person team under those plans
-5. Sources used for the pricing information, including retrieval date
+## Evaluation Rubric
 
-## Ground Truth / Evaluation Criteria
+### Requirement Coverage — Weight: 0.15
 
-The answer should satisfy the following criteria:
+Full credit requires all six required sections; coverage of both products; identification of one suitable plan for each product; comparison of task management, documentation or wiki capabilities, collaboration, integrations, plan limitations, cost, and onboarding; two five-user cost calculations; one final recommendation; and a source list with retrieval dates. Reduce proportionally for each missing section or required element.
 
-1. Correctly reports Notion's current pricing tiers, matching publicly available pricing information retrieved via tool use.
-2. Correctly reports Asana's current pricing tiers, matching publicly available pricing information retrieved via tool use.
-3. Compares core features relevant to a small team's collaboration needs (e.g., task management, docs/wiki, integrations).
-4. Provides a concrete monthly cost estimate for a 5-person team under each tool's pricing plan, and clearly states the billing assumption used, such as monthly billing or annual billing converted to a monthly amount.
-5. Gives a justified recommendation grounded in the cost and feature comparison, explains why the selected plan is appropriate for a 5-person startup team, and does not recommend a tool solely because it has the cheapest or free tier.
-6. Cites the sources used for the pricing information.
-7. Grounds any claim about ease of onboarding in specific, checkable product characteristics (e.g., interface complexity, initial setup steps, learning curve), rather than an unsupported assertion.
+### Pricing And Plan Accuracy — Weight: 0.25
+
+Full credit requires current pricing tiers and relevant plan details for both Notion and Asana to match the official sources retrieved during the task. The selected plan for each product must exist and its per-user or flat-rate pricing must be represented correctly. Pricing based on outdated, unofficial, or unsupported information should receive little or no credit. A fabricated price or nonexistent plan is a critical error.
+
+### Feature Comparison Quality — Weight: 0.15
+
+Full credit requires an accurate, direct comparison of both selected plans across all required dimensions: task and project management, documentation or wiki capabilities, collaboration features, integrations, and important plan limitations. The comparison table must make meaningful contrasts rather than listing generic marketing claims. Unsupported or incorrect feature claims should reduce the score.
+
+### Cost Calculation Accuracy — Weight: 0.15
+
+Full credit requires a transparent monthly cost estimate for exactly five users under the selected Notion plan and the selected Asana plan. The answer must show the arithmetic, identify the billing basis, and apply it consistently. For per-user pricing, the expected structure is price per user multiplied by five. If annual billing is used, the answer must clearly state that the annual price is being expressed as a monthly equivalent. An incorrect calculation or mixed billing assumptions should substantially reduce this score.
+
+### Recommendation And Onboarding Reasoning — Weight: 0.15
+
+Full credit requires one clear recommendation tailored to a five-person startup and supported by the calculated cost plus at least three scenario-relevant feature or usability considerations. The answer must explain why the recommended plan is sufficient and acknowledge at least one tradeoff. Onboarding claims must be tied to specific, checkable characteristics such as templates, setup steps, interface structure, workspace organization, or required configuration. Brand reputation or vague claims such as 'easier to use' are insufficient.
+
+### Source And Citation Quality — Weight: 0.10
+
+Full credit requires at least two current official sources, including at least one official Notion source and one official Asana source; in-text citations that support pricing and plan-feature claims; complete correspondence between citations and source-list entries; and a retrieval date for every source. Relying mainly on third-party comparison sites receives no more than half credit.
+
+### Clarity And Evidence Integrity — Weight: 0.05
+
+Full credit requires clear organization, readable Markdown, a complete comparison table, internally consistent billing assumptions, and approximately 600-900 words. Deduct for contradictions, invented discounts, unsupported feature or onboarding claims, outdated information presented as current, or citations that do not support the associated claims.
 
 ## Required Evidence
 
-The answer must cite current, publicly available pricing sources, preferably the official Notion and Asana pricing pages. Because pricing changes over time, the answer must reflect information retrieved via web search rather than memorized training data.
+Use the current official or otherwise task-specified sources required in the prompt. All factual claims, pricing details, plan features, or other externally verifiable information must be supported by citations.
 
-## Notes
+## Input Files
 
-Expected tool: web search (general search engine, used to retrieve the official
-Notion and Asana pricing pages). No other tool type is required for this task.
-
-## Scoring Rubric
-
-- Accuracy: Pricing and feature claims must match the actual current information retrieved, not outdated or invented figures.
-- Completeness: The answer must cover all required comparison dimensions and provide a 5-person cost estimate for each tool.
-- Helpfulness: The recommendation must be clear, actionable, and grounded in the stated team size and needs.
-- Hallucination Penalty: Heavily penalize any pricing, feature, or onboarding- difficulty claim that is not backed by retrieved evidence or specific, checkable product characteristics — this is the primary hallucination risk for this task.
-
+- None
 
 ## Expected Failure Risks
 
-- Relying on memorized (potentially outdated) pricing instead of actually using a tool to verify current information.
-- Citing a price without noting the source or retrieval date, making the claim unverifiable.
-- Recommending a tool based on general brand reputation rather than the concrete pricing and feature facts requested.
-- Recommending a tool solely because it has the cheapest or free tier, without explaining whether that plan meets the team's collaboration and onboarding needs.
-- Asserting that one tool is easier or harder to onboard without grounding the claim in specific, checkable product characteristics.
+- Using outdated, unofficial, or unsupported pricing and plan information.
+- Mixing monthly and annual billing assumptions in cost calculations.
+- Describing products separately without making direct comparisons.
+- Giving vague onboarding claims that are not tied to checkable product characteristics.
+- Recommending a product based only on price or personal preference.
