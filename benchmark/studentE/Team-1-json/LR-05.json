@@ -1,20 +1,19 @@
 {
   "task_id": "LR-05",
-  "title": "Comparative Literature Review and Ranking of Seven Agent-System Papers",
+  "title": "Comparative Literature Review and Architecture Recommendation Across Seven Multi-Agent and Tool-Use Papers",
   "category": "Literature Review",
   "difficulty": "Hard",
-  "prompt": "Using only the seven provided papers, write a comparative literature review of the following works:\n\n1. ReAct: Synergizing Reasoning and Acting in Language Models\n2. Reflexion: Language Agents with Verbal Reinforcement Learning\n3. Toolformer: Language Models Can Teach Themselves to Use Tools\n4. Voyager: An Open-Ended Embodied Agent with Large Language Models\n5. AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation\n6. CAMEL: Communicative Agents for Mind Exploration of Large Scale Language Model Society\n7. MetaGPT: Meta Programming for Multi-Agent Collaborative Framework\n\nFor each paper, summarize the main research problem, core mechanism or system design, principal contribution, evaluation setting, one important strength, and one important limitation. The review must synthesize the papers rather than present seven isolated summaries.\n\nThen analyze relationships among the papers. Use the following relationship types where appropriate:\n- Direct extension\n- Mechanism reuse or methodological adoption\n- Framework inclusion or integration\n- Conceptual similarity or complementary direction\n- No clear direct dependency\n\nDo not describe one paper as directly building on another unless the provided papers support a direct methodological dependency or explicit extension. A citation in related work alone is not sufficient evidence of direct influence.\n\nIdentify one specific unresolved research gap that is supported by limitations or open problems from at least two of the seven papers. Explain why the gap matters, why the reviewed papers do not fully solve it, and propose one feasible future research direction.\n\nRank all seven papers from strongest to weakest using the following four criteria:\n- Novelty: originality of the paper's central contribution at the time of publication\n- Generality: applicability beyond a narrow task, environment, or system configuration\n- Empirical Rigor: strength, breadth, and appropriateness of the evaluation evidence presented in the paper\n- Influence Within This Seven-Paper Corpus: direct methodological adoption or extension should count most; explicit conceptual reliance may count secondarily; a simple citation in related work should not be treated as strong influence\n\nScore every paper from 1 to 5 on each criterion. Use equal weights of 25% per criterion unless you explicitly propose different weights before scoring and justify them. Calculate a weighted score for each paper and use the scores to produce an overall ranking. If the final ordering differs from the numerical weighted scores, explain the reason for every deviation.\n\nAlso discuss at least two meaningful conflicts among the criteria, such as a paper being highly novel but less general, or influential but empirically narrow. The ranking must be comparative and evidence-based; there is no required predetermined winner.\n\nInclude the following tables:\n1. Seven-Paper Summary Table with columns: Paper, Research Problem, Core Mechanism, Main Contribution, Evaluation Setting, Strength, Limitation.\n2. Cross-Paper Relationship Table with columns: Source Paper, Related Paper, Relationship Type, Evidence or Rationale.\n3. Four-Criterion Scoring Matrix with columns: Paper, Novelty, Generality, Empirical Rigor, Influence, Weighted Score.\n4. Overall Ranking Table with columns: Rank, Paper, Weighted Score, Main Reason for Position.\n\nUse in-text citations that refer to the provided papers and include a References section containing all seven papers. Do not use web search, external sources, citation-count websites, or information that is not contained in the provided papers.\n\nThe response should be approximately 1,400-1,800 words.",
+  "prompt": "You are given verbatim extracts from seven papers on LLM-based agents and multi-agent systems. Two of them (AutoGen, MetaGPT) are provided as PRIMARY sources: their extracts include Abstract, Introduction (motivation and contributions), a full Method/Framework Overview, a qualitative Evaluation Overview, and Limitations. The other five (ReAct, Reflexion, Toolformer, Voyager, CAMEL) are provided as CONTEXT sources: their extracts include only the Abstract, a Contribution paragraph, and a Limitation/Conclusion paragraph — they do NOT include a Method section or an Evaluation section. This asymmetry is intentional and is part of the task: you must reason about the context papers' mechanisms only to the extent the Abstract and Contribution paragraph actually describe them, and you must not claim a level of evaluation or method detail for a context paper that its extract does not contain. None of the extracts include Related Work sections, detailed experimental setups, benchmark tables, or full numerical results tables (some headline numbers that appear directly in an Abstract or Contribution paragraph are retained as part of that verbatim text). Do not use outside knowledge, web search, or any claim not traceable to the provided extracts.\n\nThe seven sources are:\n1. AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation (PRIMARY)\n2. MetaGPT: Meta Programming for a Multi-Agent Collaborative Framework (PRIMARY)\n3. ReAct: Synergizing Reasoning and Acting in Language Models (CONTEXT)\n4. Reflexion: Language Agents with Verbal Reinforcement Learning (CONTEXT)\n5. Toolformer: Language Models Can Teach Themselves to Use Tools (CONTEXT)\n6. Voyager: An Open-Ended Embodied Agent with Large Language Models (CONTEXT)\n7. CAMEL: Communicative Agents for \"Mind\" Exploration of Large Language Model Society (CONTEXT)\n\n--- Your Task ---\n\n1. **Scope and Method.** In 2-3 sentences, state which two sources are PRIMARY and which five are CONTEXT, and briefly acknowledge that your confidence and level of detail for context sources is necessarily lower than for primary sources because their extracts omit Method and Evaluation content.\n\n2. **Seven-Source Profiles.** For each of the seven sources, summarize the core mechanism, the principal contribution, and one important limitation, in your own words (not copied verbatim). For the two PRIMARY sources, also summarize the evaluation approach described in their Evaluation Overview. For the five CONTEXT sources, do not invent an evaluation summary; if the extract does not describe evaluation, say so explicitly rather than guessing.\n\n3. **Seven-Source Summary Table** with columns: Source, Tier (Primary/Context), Core Mechanism, Main Contribution, Limitation.\n\n4. **Cross-Source Relationship Analysis.** Identify relationships among the seven sources using these relationship types: Direct extension, Mechanism reuse or methodological adoption, Framework inclusion or integration, Conceptual similarity or complementary direction, No clear direct dependency. Every relationship you assert must cite the specific sentence or claim in the extracts that supports it (e.g., quoting or closely paraphrasing the line where one paper names another paper's method). A source appearing in another's Abstract or Contribution paragraph without a specific methodological statement is not sufficient evidence of Direct extension or Mechanism reuse — classify such pairs as Conceptual similarity or No clear direct dependency instead, and say why. It is expected and acceptable for several pairs to resolve to \"No clear direct dependency\" given the limited extracts; do not manufacture relationships to fill out the analysis.\n\n5. **Research Gap and Future Direction.** Identify one specific, nontrivial unresolved gap that is explicitly supported by limitations from at least two PRIMARY sources and at least one CONTEXT source (three sources total, spanning both tiers). Explain why the gap matters and propose one feasible future research direction.\n\n6. **Four-Criterion Scoring Matrix.** Score all seven sources from 1-5 on: Novelty (originality of the central contribution), Generality (applicability beyond a narrow task or environment), Empirical Rigor (strength and specificity of the evaluation evidence actually present in that source's extract — context sources without an Evaluation Overview should generally score lower here unless their Abstract/Contribution paragraph gives specific, checkable evidence), and Influence Within This Seven-Source Corpus (based only on explicit methodological statements identified in step 4, not on outside knowledge of citation counts). Use equal 25% weights unless you explicitly propose and justify different weights before scoring. Calculate a weighted score per source and produce an overall ranking; explain any deviation between the ranking and the raw weighted scores.\n\n7. **Recommended Architecture for an Autonomous Software Development Team.** Recommend one architecture, or an explicit combination of techniques drawn from these seven sources, for the following deployment: an autonomous software development team that must go from a one-line product requirement to working, tested code; requires multiple specialized roles and real tool use (code execution, search, etc.); must be able to detect and self-correct its own errors; operates under a fixed per-task compute/token budget; and has no human in the loop during normal execution. Your recommendation must: (a) explicitly weigh at least three competing goals relevant to this scenario (for example: role/workflow structure vs. flexibility, tool-use grounding vs. token cost, error self-correction vs. latency, long-term memory/skill reuse vs. implementation complexity, or communication quality vs. coordination overhead); (b) rebut at least two plausible alternative architectures drawn from the seven sources, explaining specifically why each is a worse fit for this scenario; (c) identify one new risk introduced by your recommended architecture or combination itself, distinct from any single limitation already listed in step 2 — i.e., a risk that emerges specifically from the combination or deployment context, not a restated single-paper limitation; and (d) explicitly identify which technique or techniques from the seven sources you intentionally exclude, explaining why their marginal benefit does not justify their added implementation complexity, communication overhead, latency, or token cost in this deployment.\n\n8. **Conclusion.** In 2-4 sentences, synthesize the overall comparative picture across the seven sources.\n\n9. **References.** List all seven sources using the citation information given in each extract's \"Source:\" line.\n\nDo not invent papers, sources, mechanisms, numbers, or claims beyond what is stated in the extracts. When you state a fact, it must be traceable to one of the seven named sources, and you must be able to point to whether that fact came from a PRIMARY or CONTEXT extract.\n\nThe response should be approximately 1,600-2,000 words.",
   "required_output_format": {
     "type": "markdown",
     "sections": [
-      "Scope and Ranking Method",
-      "Seven-Paper Summary Table",
-      "Comparative Synthesis",
-      "Cross-Paper Relationship Analysis",
-      "Research Gap and Future Research Direction",
-      "Four-Criterion Scoring Matrix",
-      "Overall Ranking",
-      "Criterion-Conflict Analysis",
+      "Scope and Method",
+      "Seven-Source Profiles",
+      "Seven-Source Summary Table",
+      "Cross-Source Relationship Analysis",
+      "Research Gap and Future Direction",
+      "Four-Criterion Scoring Matrix and Overall Ranking",
+      "Recommended Architecture for an Autonomous Software Development Team",
       "Conclusion",
       "References"
     ]
@@ -22,53 +21,58 @@
   "evaluation_rubric": [
     {
       "criterion": "requirement_coverage",
+      "weight": 0.07,
+      "description": "Full credit requires all nine required sections; profiles covering all seven sources; a complete summary table; scores for all seven sources on all four ranking criteria with a weighted score and ranking; one research gap; one architecture recommendation; and a References section listing all seven sources. Missing any source from the profiles, table, or ranking substantially reduces this score."
+    },
+    {
+      "criterion": "seven_source_summary_accuracy",
       "weight": 0.1,
-      "description": "Full credit requires all ten required sections; coverage of all seven papers; all four required tables with the specified columns; one research gap supported by at least two papers; one future direction; scores for all seven papers on all four criteria; a weighted score and complete ranking; at least two criterion conflicts; and a References section containing all seven papers. Missing any paper from the summary or ranking substantially reduces this score."
+      "description": "Full credit requires technically accurate descriptions of mechanism, contribution, and limitation for each of the seven sources, in the submitter's own words. For the two PRIMARY sources, the evaluation approach must also be summarized accurately from the Evaluation Overview. For the five CONTEXT sources, the submission must not fabricate an evaluation summary the extract does not support. Attributing one source's mechanism or claim to a different source, or inventing details not present in the extract, should receive little or no credit for the affected source."
     },
     {
-      "criterion": "seven_paper_summary_accuracy",
-      "weight": 0.2,
-      "description": "Full credit requires technically accurate descriptions of the research problem, mechanism or system design, contribution, evaluation setting, strength, and limitation for each of the seven papers. Each paper contributes approximately one seventh of this criterion. Major mechanism attribution errors, invented experiments, or assigning one paper's contribution to another should receive little or no credit for the affected paper."
-    },
-    {
-      "criterion": "cross_paper_relationship_accuracy",
-      "weight": 0.15,
-      "description": "Full credit requires careful use of the allowed relationship types and evidence-based distinctions among direct extension, mechanism reuse, framework inclusion, conceptual similarity, and no clear dependency. A related-work citation alone must not be treated as direct methodological influence. Unsupported claims that one paper directly builds on another should substantially reduce this score."
+      "criterion": "cross_source_relationship_accuracy",
+      "weight": 0.18,
+      "description": "Full credit requires every asserted relationship to cite specific supporting text from the extracts, correct use of the five relationship types, and appropriate restraint. A bare mention in an Abstract or Contribution paragraph is insufficient evidence for Direct extension, Mechanism reuse, or Framework inclusion unless the extract explicitly describes the methodological relationship. Unsupported pairs should be classified as Conceptual similarity or No clear direct dependency, with an explanation of why the available evidence does not justify a stronger claim. The analysis should also distinguish citation, thematic overlap, methodological adoption, and actual framework integration. A submission that invents methodological dependencies or overstates relationships not supported by the extracts should score very low. This criterion is heavily weighted because it directly tests evidence-grounded synthesis rather than confident-sounding fabrication."
     },
     {
       "criterion": "research_gap_quality",
-      "weight": 0.15,
-      "description": "Full credit requires one specific and nontrivial unresolved gap supported by limitations or open problems from at least two reviewed papers; an explanation of why the gap matters; a demonstration that the seven papers do not already fully solve it; and one feasible future research direction that directly addresses the gap. Generic statements such as 'agents need to be more accurate' receive little or no credit."
+      "weight": 0.1,
+      "description": "Full credit requires one specific, nontrivial gap explicitly supported by limitations from at least two PRIMARY sources and at least one CONTEXT source (three sources spanning both tiers), an explanation of why it matters, and one feasible future direction. A gap supported only by sources from a single tier, or a generic gap such as 'agents need to be more reliable,' receives little or no credit."
     },
     {
       "criterion": "ranking_method_consistency",
-      "weight": 0.15,
-      "description": "Full credit requires explicit weights, 1-5 scores for every paper on novelty, generality, empirical rigor, and influence, correct weighted-score calculations, and an overall ranking consistent with those scores. Equal 25% weights are acceptable without further justification. Alternative weights require a clear rationale before scoring. Any ranking position that conflicts with the numerical result must be explicitly justified."
+      "weight": 0.1,
+      "description": "Full credit requires explicit 1-5 scores for every source on all four criteria, correct weighted-score arithmetic, and a final ranking consistent with those scores unless deviations are explicitly justified. Full credit also requires Empirical Rigor scores to reflect the actual evidence tier of each source (context sources without an Evaluation Overview should not receive the same Empirical Rigor justification as primary sources unless the submission explains why). Equal 25% weights are acceptable without further justification; alternative weights require a stated rationale before scoring."
     },
     {
-      "criterion": "criterion_conflict_reasoning",
-      "weight": 0.1,
-      "description": "Full credit requires at least two meaningful conflicts among ranking criteria and explains how those conflicts affect the ordering. The analysis should compare papers directly, such as novelty versus generality or influence versus empirical breadth, rather than merely defining the criteria."
+      "criterion": "evidence_calibration",
+      "weight": 0.08,
+      "description": "Full credit requires the submission to consistently distinguish claims backed by full Method/Evaluation extracts (PRIMARY sources) from claims backed only by an Abstract and Contribution paragraph (CONTEXT sources), and to avoid treating a context source's abstract-level claim as if it had the same evidentiary weight as a primary source's documented evaluation. This applies throughout the submission, not only in the Scope and Method section. Submissions that silently treat all seven sources as equally well-evidenced receive little or no credit."
+    },
+    {
+      "criterion": "architecture_recommendation_under_constraints",
+      "weight": 0.22,
+      "description": "Full credit requires a recommendation that explicitly weighs at least three competing goals relevant to the autonomous software development team scenario, rebuts at least two plausible alternative architectures drawn from the seven sources with specific reasons tied to the deployment constraints, and identifies one new risk introduced by the recommended architecture or combination itself that is distinct from any single source's limitation. The response must also identify which technique or techniques are intentionally excluded and explain why their marginal benefit does not justify the added implementation complexity, communication overhead, latency, or token cost. The recommendation must engage the fixed per-task compute/token budget and the absence of a human in the loop during normal execution. A response that simply combines all seven techniques, selects the highest-ranked source without scenario-specific reasoning, or repeats a single-paper limitation as the new risk receives at most half credit."
     },
     {
       "criterion": "source_and_citation_integrity",
       "weight": 0.1,
-      "description": "Full credit requires claims to be traceable to the seven provided papers, in-text citations corresponding to the References section, and no external sources. Fabricated papers, authors, venues, experiments, numerical results, dependencies, or citation relationships receive zero credit for the affected claims and should be flagged as critical failures."
+      "description": "Full credit requires every claim to be traceable to one of the seven named sources and correctly attributed to its PRIMARY or CONTEXT tier, with a References section listing all seven using the citation information in the extracts. Fabricated papers, authors, mechanisms, numerical results, or relationships receive zero credit for the affected claims and should be flagged as a critical failure."
     },
     {
       "criterion": "clarity_and_format",
       "weight": 0.05,
-      "description": "Full credit requires clear organization, comparative synthesis rather than seven disconnected summaries, readable Markdown, internally consistent tables and calculations, and approximately 1,400-1,800 words. Major format omissions, contradictions between prose and tables, or an answer below 1,200 or above 2,000 words should receive little or no credit for this criterion."
+      "description": "Full credit requires clear organization, genuine synthesis rather than seven disconnected summaries, readable Markdown, internally consistent tables and calculations, and approximately 1,600-2,000 words. Contradictions between the prose and the tables, or a response far outside the target length, should receive little or no credit for this criterion."
     }
   ],
   "tool_requirement": "Prohibited",
   "input_files": [
-  "react.pdf",
-  "reflexion.pdf",
-  "toolformer.pdf",
-  "voyager.pdf",
-  "autogen.pdf",
-  "camel.pdf",
-  "metagpt.pdf"
-]
+    "autogen_primary_extract.md",
+    "metagpt_primary_extract.md",
+    "react_context_extract.md",
+    "reflexion_context_extract.md",
+    "toolformer_context_extract.md",
+    "voyager_context_extract.md",
+    "camel_context_extract.md"
+  ]
 }
